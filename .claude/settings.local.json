@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/jonpp/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/1f988521-57a8-4795-b498-069fe1af2753/18c7fd5c-1d18-4a57-bf13-456d48264453/skills/docx/**)",
+      "Bash(python3 scripts/office/unpack.py \"C:\\\\Users\\\\jonpp\\\\Downloads\\\\2026 Annual Meeting Agenda.docx\" \"C:\\\\Users\\\\jonpp\\\\Downloads\\\\agenda_unpacked\")",
+      "Bash(pandoc \"C:\\\\Users\\\\jonpp\\\\Downloads\\\\2026 Annual Meeting Agenda.docx\" -t plain)",
+      "PowerShell(Rename-Item \"C:\\\\Users\\\\jonpp\\\\Claude Code\\\\Huning Castle\\\\newsletters\\\\Spring HCNA Newsletter final.pdf\" \"spring-2026-newsletter.pdf\")",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:8080/newsletters/spring-2026-newsletter.pdf\" -Method Head -ErrorAction SilentlyContinue | Select-Object StatusCode, @{N='ContentType';E={$_.Headers['Content-Type']}})",
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\jonpp\\\\Claude Code\\\\Huning Castle\\\\.claude\\\\serve.ps1\")"
+    ]
+  }
+}

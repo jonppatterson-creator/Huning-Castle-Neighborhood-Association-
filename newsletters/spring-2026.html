@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring 2026 Newsletter – Huning Castle NA</title>
+<style>
+  :root {
+    --terracotta: #C4622D;
+    --bark: #5C3D2E;
+    --sand: #F5EDD8;
+    --cream: #FBF7EF;
+    --warm-gray: #8A7968;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .toolbar {
+    background: var(--bark);
+    color: var(--cream);
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .toolbar a.back {
+    color: var(--sand);
+    text-decoration: none;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+  .toolbar a.back:hover { color: white; }
+  .toolbar h1 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cream);
+    flex: 1;
+    text-align: center;
+  }
+  .toolbar a.download {
+    background: var(--terracotta);
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .toolbar a.download:hover { background: #a04e22; }
+
+  .viewer-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  embed {
+    flex: 1;
+    width: 100%;
+    min-height: calc(100vh - 52px);
+    border: none;
+    display: block;
+  }
+
+  /* Fallback shown only when embed fails */
+  .fallback {
+    display: none;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .fallback h2 {
+    font-size: 1.4rem;
+    color: var(--bark);
+  }
+  .fallback p { color: var(--warm-gray); max-width: 360px; }
+  .fallback a {
+    background: var(--terracotta);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .fallback a:hover { background: #a04e22; }
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <a class="back" href="../index.html#newsletter">← Back to Website</a>
+    <h1>HCNA Spring 2026 Newsletter</h1>
+    <a class="download" href="spring-2026-newsletter.pdf" download>Download PDF</a>
+  </div>
+
+  <div class="viewer-wrap" id="viewerWrap">
+    <embed
+      id="pdfEmbed"
+      src="spring-2026-newsletter.pdf#toolbar=1&navpanes=0"
+      type="application/pdf"
+    />
+    <div class="fallback" id="fallback">
+      <h2>Open the Spring 2026 Newsletter</h2>
+      <p>Your browser blocked the inline preview. Download the PDF to read it.</p>
+      <a href="spring-2026-newsletter.pdf" download>Download Newsletter</a>
+    </div>
+  </div>
+
+  <script>
+    // If embed doesn't load within 2 seconds, show the fallback download card
+    setTimeout(function() {
+      var embed = document.getElementById('pdfEmbed');
+      var fallback = document.getElementById('fallback');
+      if (!embed || embed.offsetHeight < 50) {
+        embed.style.display = 'none';
+        fallback.style.display = 'flex';
+      }
+    }, 2000);
+  </script>
+</body>
+</html>

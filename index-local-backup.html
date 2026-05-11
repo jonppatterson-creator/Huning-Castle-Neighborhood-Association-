@@ -68,6 +68,43 @@
   }
   .nav-cta:hover { background: var(--bark) !important; color: white !important; }
 
+  /* ─── DROPDOWN SUBMENU ─── */
+  .nav-links li { position: relative; }
+  .nav-has-dropdown > a::after { content: ' ▾'; font-size: 0.65rem; }
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(251,247,239,0.98);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(92,61,46,0.12);
+    border-radius: 0.75rem;
+    padding: 0.4rem 0;
+    min-width: 170px;
+    box-shadow: 0 8px 24px rgba(44,36,25,0.12);
+    white-space: nowrap;
+    z-index: 200;
+  }
+  .nav-has-dropdown:hover .nav-dropdown { display: block; }
+  .nav-dropdown a {
+    display: block;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    color: var(--warm-gray) !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .nav-dropdown a:hover {
+    color: var(--terracotta) !important;
+    background: var(--sand);
+    border-radius: 0.5rem;
+  }
+
   /* ─── HAMBURGER MENU ─── */
   .hamburger {
     display: none;
@@ -655,6 +692,50 @@
   }
   .btn-submit:hover { background: var(--bark); }
 
+  /* ─── NEWSLETTER SECTION ─── */
+  #newsletter { padding: 5rem 2rem; }
+  .newsletter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .newsletter-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: white;
+    border: 1px solid rgba(92,61,46,0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .newsletter-card:hover {
+    box-shadow: 0 8px 24px rgba(44,36,25,0.1);
+    transform: translateY(-2px);
+  }
+  .newsletter-season {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+  .newsletter-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--bark);
+  }
+  .newsletter-cta {
+    margin-top: auto;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--warm-gray);
+    letter-spacing: 0.02em;
+  }
+  .newsletter-card:hover .newsletter-cta { color: var(--terracotta); }
+
   /* ─── FOOTER ─── */
   footer {
     background: var(--bark);
@@ -881,99 +962,6 @@
     text-align: center; margin-bottom: 2.5rem;
     color: var(--sage-light); font-size: 1.2rem; letter-spacing: 0.3em;
   }
-
-  /* ─── NEWSLETTER ─── */
-  .newsletter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.5rem;
-  }
-  .newsletter-card {
-    background: white;
-    border-radius: 1.25rem;
-    overflow: hidden;
-    box-shadow: 0 2px 16px rgba(92,61,46,0.07);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .newsletter-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(92,61,46,0.13);
-  }
-  .newsletter-card-header {
-    background: linear-gradient(135deg, var(--terracotta) 0%, var(--bark) 100%);
-    padding: 1.5rem;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .newsletter-card-header::after {
-    content: '📰';
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    font-size: 3.5rem;
-    opacity: 0.12;
-  }
-  .newsletter-card-header h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    margin-bottom: 0.25rem;
-  }
-  .newsletter-card-header .date {
-    font-size: 0.8rem;
-    opacity: 0.85;
-  }
-  .newsletter-card-body {
-    padding: 1.25rem 1.5rem;
-  }
-  .newsletter-card-body p {
-    font-size: 0.9rem;
-    color: var(--warm-gray);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  .newsletter-card-actions {
-    display: flex;
-    gap: 0.75rem;
-  }
-  .newsletter-card-actions a {
-    flex: 1;
-    text-align: center;
-    padding: 0.55rem 1rem;
-    border-radius: 0.6rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-  .newsletter-btn-view {
-    background: var(--terracotta);
-    color: white;
-  }
-  .newsletter-btn-view:hover {
-    background: var(--bark);
-  }
-  .newsletter-btn-download {
-    border: 1.5px solid var(--sage);
-    color: var(--sage);
-    background: transparent;
-  }
-  .newsletter-btn-download:hover {
-    background: var(--sage);
-    color: white;
-  }
-
-  @media (max-width: 600px) {
-    .newsletter-grid {
-      grid-template-columns: 1fr;
-    }
-    .newsletter-card-body {
-      padding: 1rem 1.25rem;
-    }
-    .newsletter-card-actions {
-      flex-direction: column;
-    }
-  }
 </style>
 </head>
 <body>
@@ -985,7 +973,12 @@
     <li><a href="#about">About Us</a></li>
     <li><a href="#meetings">Meetings</a></li>
     <li><a href="#events">Events</a></li>
-    <li><a href="#newsletter">Newsletter</a></li>
+    <li class="nav-has-dropdown">
+      <a href="#newsletter">Newsletter</a>
+      <div class="nav-dropdown">
+        <a href="newsletters/spring-2026.html">Spring 2026</a>
+      </div>
+    </li>
     <li><a href="#safety">Safety</a></li>
     <li><a href="#citynews">City News</a></li>
   </ul>
@@ -1003,6 +996,7 @@
     <li><a href="#meetings" onclick="closeMenu()">Meetings</a></li>
     <li><a href="#events" onclick="closeMenu()">Events</a></li>
     <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="newsletters/spring-2026.html" onclick="closeMenu()" style="padding-left: 3rem; font-size: 0.95rem; color: var(--warm-gray);">↳ Spring 2026</a></li>
     <li><a href="#safety" onclick="closeMenu()">Safety</a></li>
     <li><a href="#citynews" onclick="closeMenu()">City News</a></li>
   </ul>
@@ -1103,10 +1097,10 @@
             <div class="notice-section">
               <h5>🔗 Course Maps</h5>
               <div class="course-links">
-                <a href="https://www.mapmyrun.com/routes/view/6224963041" target="_blank">Marathon Course</a>
-                <a href="https://www.mapmyrun.com/routes/view/6224970081" target="_blank">Half Marathon Course</a>
-                <a href="https://www.mapmyrun.com/routes/view/6224974401" target="_blank">10K Course</a>
-                <a href="https://www.mapmyrun.com/routes/view/6224977281" target="_blank">5K Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224963041">Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224970081">Half Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224974401">10K Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224977281">5K Course</a>
               </div>
             </div>
 
@@ -1114,7 +1108,7 @@
               <h5>📞 Questions?</h5>
               <p><strong>RunFit</strong> (501(c)(3) Non-Profit)<br>
               Phone: <a href="tel:505-217-4774">505-217-4774</a><br>
-              Website: <a href="https://www.irunfit.org" target="_blank">www.irunfit.org</a></p>
+              Website: <a href="https://www.irunfit.org">www.irunfit.org</a></p>
             </div>
           </div>
         </div>
@@ -1418,20 +1412,6 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section id="newsletter" style="background: var(--sand);">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Stay Connected</div>
-      <h2 class="section-title">Neighborhood Newsletter</h2>
-      <p class="section-desc">News, updates, and stories from across the Huning Castle neighborhood.</p>
-    </div>
-    <div id="newsletter-list" class="newsletter-grid">
-      <p style="color: var(--warm-gray); font-family: 'Lora', serif;">Loading newsletters...</p>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT US -->
 <section id="about" style="background: var(--sand);">
   <div class="section-inner">
@@ -1561,6 +1541,24 @@
   </div>
 </section>
 
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Stay Informed</div>
+      <h2 class="section-title">Newsletters</h2>
+      <p class="section-desc">Catch up on neighborhood news, announcements, and community highlights from the Huning Castle Neighborhood Association.</p>
+    </div>
+    <div class="newsletter-grid">
+      <a class="newsletter-card" href="newsletters/spring-2026.html">
+        <div class="newsletter-season">Spring 2026</div>
+        <div class="newsletter-card-title">HCNA Spring Newsletter</div>
+        <div class="newsletter-cta">Read Newsletter →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1667,49 +1665,6 @@
   }
   window.addEventListener('scroll', updateActive);
   updateActive();
-
-  // Newsletter loader
-  (function() {
-    fetch('newsletters.json')
-      .then(r => r.json())
-      .then(newsletters => {
-        newsletters.sort((a, b) => b.date.localeCompare(a.date));
-        const container = document.getElementById('newsletter-list');
-        if (!newsletters.length) {
-          container.innerHTML = '<p style="color:var(--warm-gray); font-family:Lora,serif; font-style:italic;">No newsletters available yet. Check back soon!</p>';
-          return;
-        }
-        container.innerHTML = newsletters.map(nl => {
-          const dateObj = new Date(nl.date + 'T12:00:00');
-          const displayDate = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
-          const pdfPath = 'newsletters/' + nl.filename;
-          const desc = nl.description
-            ? '<p>' + nl.description.replace(/</g, '&lt;') + '</p>'
-            : '';
-          return `
-            <div class="newsletter-card">
-              <div class="newsletter-card-header">
-                <h4>${nl.title.replace(/</g, '&lt;')}</h4>
-                <div class="date">${displayDate}</div>
-              </div>
-              <div class="newsletter-card-body">
-                ${desc}
-                <div class="newsletter-card-actions">
-                  <a href="${pdfPath}" target="_blank" rel="noopener" class="newsletter-btn-view">View PDF</a>
-                  <a href="${pdfPath}" download class="newsletter-btn-download">Download</a>
-                </div>
-              </div>
-            </div>
-          `;
-        }).join('');
-      })
-      .catch(() => {
-        const container = document.getElementById('newsletter-list');
-        if (container) {
-          container.innerHTML = '<p style="color:var(--warm-gray); font-family:Lora,serif; font-style:italic;">Newsletter archive coming soon.</p>';
-        }
-      });
-  })();
 </script>
 
 </body>
