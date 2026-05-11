@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huning Castle Neighborhood Association</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #C4622D;
+    --terracotta-light: #E8855A;
+    --sand: #F5EDD8;
+    --cream: #FBF7EF;
+    --bark: #5C3D2E;
+    --sage: #7A8C6E;
+    --sage-light: #A8BA9A;
+    --warm-gray: #8A7968;
+    --charcoal: #2D2419;
+    --gold: #C9963B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(251,247,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(92,61,46,0.12);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--bark);
+    letter-spacing: 0.02em;
+  }
+  .nav-brand span { color: var(--terracotta); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--warm-gray);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-cta {
+    background: var(--terracotta);
+    color: white !important;
+    padding: 0.4rem 1.1rem;
+    border-radius: 2rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--bark) !important; color: white !important; }
+
+  /* ─── HAMBURGER MENU ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 110;
+  }
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    background: var(--bark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(251,247,239,0.98);
+    backdrop-filter: blur(12px);
+    z-index: 99;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu.active {
+    display: block;
+    opacity: 1;
+  }
+  .mobile-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 0.5rem;
+    padding: 2rem;
+  }
+  .mobile-menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .mobile-menu a {
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--bark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border-radius: 0.75rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile-menu a:hover {
+    background: var(--sand);
+    color: var(--terracotta);
+  }
+  .mobile-menu .mobile-cta {
+    background: var(--terracotta);
+    color: white;
+    margin-top: 1rem;
+    border-radius: 2rem;
+  }
+  .mobile-menu .mobile-cta:hover {
+    background: var(--bark);
+  }
+
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+  }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(196,98,45,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at 10% 80%, rgba(122,140,110,0.12) 0%, transparent 60%),
+      var(--cream);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(
+      45deg, var(--bark) 0, var(--bark) 1px, transparent 0, transparent 50%
+    );
+    background-size: 20px 20px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-text { animation: fadeUp 0.8s ease both; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(196,98,45,0.1);
+    border: 1px solid rgba(196,98,45,0.25);
+    color: var(--terracotta);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    color: var(--bark);
+    margin-bottom: 1.25rem;
+  }
+  .hero-title em { color: var(--terracotta); font-style: italic; }
+  .hero-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--warm-gray);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--bark); transform: translateY(-1px); }
+  .btn-secondary {
+    border: 2px solid var(--sage);
+    color: var(--sage);
+    padding: 0.75rem 1.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--sage); color: white; }
+
+  .hero-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 8px 40px rgba(92,61,46,0.12), 0 2px 8px rgba(92,61,46,0.06);
+    animation: fadeUp 0.8s 0.2s ease both;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -2px; left: 2rem; right: 2rem; height: 4px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
+    border-radius: 0 0 4px 4px;
+  }
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--bark);
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .quick-event {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(92,61,46,0.08);
+  }
+  .quick-event:last-child { border-bottom: none; }
+  .event-date-box {
+    background: var(--sand);
+    border-radius: 0.75rem;
+    padding: 0.4rem 0.7rem;
+    text-align: center;
+    min-width: 48px;
+    flex-shrink: 0;
+  }
+  .event-date-box .month {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+  .event-date-box .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--bark);
+    line-height: 1;
+  }
+  .quick-event-info .title { font-weight: 500; font-size: 0.9rem; color: var(--charcoal); }
+  .quick-event-info .time { font-size: 0.8rem; color: var(--warm-gray); margin-top: 0.15rem; }
+
+  /* ─── SECTIONS SHARED ─── */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terracotta);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--bark);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .section-desc {
+    font-family: 'Lora', serif;
+    color: var(--warm-gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .section-header { margin-bottom: 2.5rem; }
+
+  /* ─── NEWS ─── */
+  #news { background: var(--sand); }
+  .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .news-card {
+    background: white;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(92,61,46,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .news-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(92,61,46,0.13); }
+  .news-card-accent { height: 6px; }
+  .accent-terracotta { background: var(--terracotta); }
+  .accent-sage { background: var(--sage); }
+  .accent-gold { background: var(--gold); }
+  .news-card-body { padding: 1.5rem; }
+  .news-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .tag-announce { background: rgba(196,98,45,0.1); color: var(--terracotta); }
+  .tag-update { background: rgba(122,140,110,0.12); color: var(--sage); }
+  .tag-reminder { background: rgba(201,150,59,0.12); color: var(--gold); }
+  .news-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--bark);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+  }
+  .news-card p { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; }
+  .news-card-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(92,61,46,0.07);
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+  }
+  .read-more { color: var(--terracotta); text-decoration: none; font-weight: 500; }
+  .read-more:hover { text-decoration: underline; }
+
+  /* ─── EVENTS ─── */
+  #events { background: var(--cream); }
+  .events-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; }
+  .events-list { display: flex; flex-direction: column; gap: 1rem; }
+  .event-row {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1.5rem;
+    box-shadow: 0 2px 12px rgba(92,61,46,0.06);
+    transition: box-shadow 0.2s, transform 0.15s;
+    border-left: 4px solid transparent;
+  }
+  .event-row:hover { box-shadow: 0 4px 20px rgba(92,61,46,0.1); transform: translateX(3px); }
+  .event-row.featured { border-left-color: var(--terracotta); }
+  .event-row.community { border-left-color: var(--sage); }
+  .event-row.meeting { border-left-color: var(--gold); }
+  .event-big-date {
+    text-align: center; flex-shrink: 0;
+    min-width: 56px;
+  }
+  .event-big-date .month {
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--warm-gray); font-weight: 500;
+  }
+  .event-big-date .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; line-height: 1; color: var(--bark);
+  }
+  .event-info { flex: 1; }
+  .event-info h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); }
+  .event-meta { font-size: 0.82rem; color: var(--warm-gray); margin-top: 0.2rem; }
+  .event-badge {
+    font-size: 0.7rem; padding: 0.2rem 0.65rem; border-radius: 2rem;
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;
+  }
+  .badge-featured { background: rgba(196,98,45,0.1); color: var(--terracotta); }
+  .badge-community { background: rgba(122,140,110,0.12); color: var(--sage); }
+  .badge-meeting { background: rgba(201,150,59,0.12); color: var(--gold); }
+
+  /* ─── EXPANDABLE EVENT CARDS ─── */
+  .event-row.expandable {
+    cursor: pointer;
+    user-select: none;
+  }
+  .event-row.expandable:hover {
+    background: rgba(122,140,110,0.04);
+  }
+  .event-row.expandable h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .expand-icon {
+    font-size: 0.65rem;
+    color: var(--sage);
+    transition: transform 0.3s ease;
+  }
+  .event-row.expandable.active .expand-icon {
+    transform: rotate(180deg);
+  }
+  .event-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    background: white;
+    border-radius: 0 0 1rem 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 16px rgba(92,61,46,0.08);
+    border-left: 4px solid var(--sage);
+  }
+  .event-details.active {
+    max-height: 1200px;
+  }
+  .event-details-inner {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+  .notice-intro {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+  }
+  .notice-alert {
+    background: rgba(201,150,59,0.12);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--bark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .notice-section {
+    margin-bottom: 1.25rem;
+  }
+  .notice-section h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--bark);
+    margin-bottom: 0.5rem;
+  }
+  .notice-section p,
+  .notice-section li {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+  .notice-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .notice-note {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+  .course-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .course-links a {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    background: var(--sand);
+    color: var(--bark);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .course-links a:hover {
+    background: var(--sage);
+    color: white;
+  }
+  .notice-contact {
+    background: var(--sand);
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+  .notice-contact h5 {
+    margin-bottom: 0.35rem;
+  }
+  .notice-contact a {
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+  .notice-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .events-sidebar {}
+  .sidebar-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    box-shadow: 0 2px 16px rgba(92,61,46,0.07);
+  }
+  .sidebar-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; color: var(--bark); margin-bottom: 1rem;
+  }
+  .mini-calendar-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 2px; text-align: center;
+  }
+  .cal-header { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm-gray); padding: 0.3rem 0; }
+  .cal-day {
+    font-size: 0.82rem; padding: 0.3rem 0; border-radius: 50%;
+    cursor: pointer; transition: background 0.15s; color: var(--charcoal);
+  }
+  .cal-day:hover { background: var(--sand); }
+  .cal-day.has-event { background: var(--sand); color: var(--terracotta); font-weight: 600; }
+  .cal-day.today { background: var(--terracotta); color: white !important; }
+  .cal-day.empty { color: transparent; pointer-events: none; }
+  .cal-month {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--bark);
+    text-align: center; margin-bottom: 0.75rem;
+  }
+
+  /* ─── RESOURCES ─── */
+  #resources { background: white; }
+  .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+  .resource-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem;
+    border: 1.5px solid rgba(92,61,46,0.1);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    background: white;
+  }
+  .resource-item:hover {
+    border-color: var(--terracotta);
+    box-shadow: 0 4px 16px rgba(196,98,45,0.1);
+    transform: translateY(-2px);
+  }
+  .resource-icon {
+    width: 44px; height: 44px; border-radius: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .icon-pdf { background: rgba(196,98,45,0.1); }
+  .icon-doc { background: rgba(122,140,110,0.12); }
+  .icon-link { background: rgba(201,150,59,0.12); }
+  .resource-info .title { font-weight: 500; font-size: 0.92rem; color: var(--bark); }
+  .resource-info .desc { font-size: 0.8rem; color: var(--warm-gray); margin-top: 0.15rem; }
+
+  /* ─── BOARD / CONTACT ─── */
+  #contact { background: var(--sand); }
+  .contact-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+  .board-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .board-member {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 12px rgba(92,61,46,0.06);
+  }
+  .board-member .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--terracotta-light), var(--terracotta));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .board-member .name { font-weight: 500; font-size: 0.92rem; color: var(--bark); }
+  .board-member .role { font-size: 0.78rem; color: var(--terracotta); margin-top: 0.15rem; }
+  .board-member .email { font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.25rem; }
+
+  .contact-form-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(92,61,46,0.08);
+  }
+  .contact-form-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--bark); margin-bottom: 1.25rem;
+  }
+  .form-row { margin-bottom: 1rem; }
+  .form-row label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--bark); margin-bottom: 0.4rem; letter-spacing: 0.03em; }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid rgba(92,61,46,0.15);
+    border-radius: 0.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+    border-color: var(--terracotta);
+  }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .btn-submit {
+    width: 100%;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--bark); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bark);
+    color: rgba(255,255,255,0.75);
+    padding: 3rem 2rem 1.5rem;
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand { }
+  .footer-brand .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: white; margin-bottom: 0.75rem;
+  }
+  .footer-brand p { font-size: 0.875rem; line-height: 1.7; }
+  footer h5 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: white; margin-bottom: 0.85rem; }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  footer ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+  footer ul a:hover { color: var(--terracotta-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.25rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+    .events-layout { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    
+    /* Agenda grid to single column */
+    .agenda-layout {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    /* General spacing */
+    section { padding: 3rem 1.25rem; }
+    .section-inner { padding: 0; }
+    
+    /* Nav */
+    nav { padding: 0 1rem; }
+    .nav-brand { font-size: 1rem; }
+    
+    /* Hero */
+    #home { min-height: auto; padding-top: 80px; padding-bottom: 2rem; }
+    .hero-content { padding: 2rem 1.25rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-badge { font-size: 0.7rem; padding: 0.35rem 0.85rem; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions a { width: 100%; text-align: center; }
+    .hero-card { padding: 1.5rem; }
+    .hero-card h3 { font-size: 1rem; }
+    
+    /* Section headers */
+    .section-title { font-size: 1.6rem; }
+    .section-desc { font-size: 0.92rem; }
+    .section-header { margin-bottom: 1.75rem; }
+    
+    /* Events */
+    .event-row { 
+      flex-direction: column; 
+      align-items: flex-start; 
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+    .event-big-date { 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+      min-width: auto;
+    }
+    .event-big-date .month { font-size: 0.75rem; }
+    .event-big-date .day { font-size: 1.5rem; }
+    .event-info h4 { font-size: 1rem; }
+    .event-meta { font-size: 0.8rem; }
+    .event-badge { align-self: flex-start; }
+    
+    /* Expandable event details */
+    .event-details-inner { padding: 1.25rem; }
+    .notice-intro { font-size: 0.9rem; }
+    .notice-alert { padding: 0.85rem 1rem; font-size: 0.85rem; }
+    .notice-section h5 { font-size: 0.9rem; }
+    .notice-section p, .notice-section li { font-size: 0.85rem; }
+    .course-links { gap: 0.4rem; }
+    .course-links a { padding: 0.35rem 0.75rem; font-size: 0.78rem; }
+    
+    /* Calendar sidebar */
+    .events-sidebar { margin-top: 1rem; }
+    .sidebar-card { padding: 1.25rem; }
+    .cal-day { font-size: 0.75rem; padding: 0.4rem 0; }
+    
+    /* Resources */
+    .resources-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .resource-item { padding: 1rem; }
+    .resource-icon { width: 40px; height: 40px; font-size: 1rem; }
+    .resource-info .title { font-size: 0.88rem; }
+    
+    /* Board members */
+    .board-grid { grid-template-columns: 1fr; }
+    .board-member { 
+      display: flex; 
+      align-items: center; 
+      gap: 1rem; 
+      padding: 1rem;
+    }
+    .board-member .avatar { 
+      margin-bottom: 0; 
+      width: 48px; 
+      height: 48px;
+      flex-shrink: 0;
+    }
+    
+    /* Contact form */
+    .contact-form-card { padding: 1.5rem; }
+    .contact-form-card h4 { font-size: 1.1rem; }
+    .form-row input, .form-row textarea, .form-row select {
+      padding: 0.75rem 1rem;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
+    /* Agenda section */
+    .agenda-layout > div:first-child {
+      padding: 1.5rem !important;
+    }
+    .agenda-layout > div:last-child > div {
+      padding: 1.25rem !important;
+    }
+    #agenda ol li { 
+      padding: 0.85rem 0 !important; 
+    }
+    #agenda ol li span:first-child { 
+      min-width: 24px !important; 
+      font-size: 1rem !important; 
+    }
+    #agenda ol li span:last-child,
+    #agenda ol li > div { 
+      font-size: 0.9rem !important; 
+    }
+    
+    /* Footer */
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-brand .logo { font-size: 1.1rem; }
+    .footer-brand p { font-size: 0.85rem; }
+    footer { padding: 2rem 1.25rem 1.25rem; }
+    .footer-bottom { 
+      flex-direction: column; 
+      gap: 0.5rem; 
+      text-align: center; 
+      font-size: 0.75rem;
+    }
+  }
+  
+  /* Extra small devices */
+  @media (max-width: 380px) {
+    .hero-title { font-size: 1.75rem; }
+    .btn-primary, .btn-secondary { 
+      padding: 0.7rem 1.4rem; 
+      font-size: 0.9rem; 
+    }
+    .event-info h4 { font-size: 0.95rem; }
+    .section-title { font-size: 1.4rem; }
+  }
+
+  /* ─── SUB-TABS ─── */
+  .subtab-nav {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid rgba(92,61,46,0.12);
+    flex-wrap: wrap;
+  }
+  .subtab-btn {
+    background: none;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--warm-gray);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .subtab-btn:hover { color: var(--terracotta); }
+  .subtab-btn.active { color: var(--terracotta); border-bottom-color: var(--terracotta); font-weight: 600; }
+  .subtab-panel { display: none; }
+  .subtab-panel.active { display: block; }
+
+  /* History prose */
+  .history-prose {
+    max-width: 780px;
+  }
+  .history-prose h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--bark);
+    margin-bottom: 1.25rem;
+  }
+  .history-prose p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+  .history-prose p:last-child { margin-bottom: 0; }
+
+  /* Divider ornament */
+  .ornament {
+    text-align: center; margin-bottom: 2.5rem;
+    color: var(--sage-light); font-size: 1.2rem; letter-spacing: 0.3em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Huning <span>Castle</span> NA</div>
+  <ul class="nav-links">
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#meetings">Meetings</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#safety">Safety</a></li>
+    <li><a href="#citynews">City News</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" onclick="closeMenu()">About Us</a></li>
+    <li><a href="#meetings" onclick="closeMenu()">Meetings</a></li>
+    <li><a href="#events" onclick="closeMenu()">Events</a></li>
+    <li><a href="#newsletter" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="#safety" onclick="closeMenu()">Safety</a></li>
+    <li><a href="#citynews" onclick="closeMenu()">City News</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">⬡ Est. in the Heart of Albuquerque</div>
+      <h1 class="hero-title">Welcome to <em>Huning Castle</em> Neighborhood</h1>
+      <p class="hero-subtitle">A historic community rooted in warm neighbors, tree-lined streets, and a shared love for where we live. Together, we make this place home.</p>
+      <div class="hero-actions">
+        <a href="#events" class="btn-primary">Upcoming Events →</a>
+        <a href="#resources" class="btn-secondary">Resources</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>📅 Coming Up</h3>
+      <div class="quick-event">
+        <div class="event-date-box"><div class="month">May</div><div class="day">13</div></div>
+        <div class="quick-event-info">
+          <div class="title">Annual Neighborhood Meeting</div>
+          <div class="time">6:00 PM · Albuquerque Country Club, Banquet Room</div>
+        </div>
+      </div>
+      <div class="quick-event">
+        <div class="event-date-box"><div class="month">Jun</div><div class="day">10</div></div>
+        <div class="quick-event-info">
+          <div class="title">Monthly Board Meeting</div>
+          <div class="time">6:00 PM · Albuquerque Country Club</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Get Together</div>
+      <h2 class="section-title">Events Calendar</h2>
+      <p class="section-desc">From monthly meetings to neighborhood socials — there's always something to join.</p>
+    </div>
+    <div class="events-layout">
+      <div class="events-list">
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Apr</div><div class="day">8</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row community expandable" onclick="toggleEventDetails(this)">
+          <div class="event-big-date"><div class="month">Apr</div><div class="day">11</div></div>
+          <div class="event-info">
+            <h4>Albuquerque Marathon & Half Marathon <span class="expand-icon">▼</span></h4>
+            <div class="event-meta">📍 Runners through neighborhood · 7:30 AM – 1:30 PM</div>
+          </div>
+          <span class="event-badge badge-community">Community</span>
+        </div>
+        <div class="event-details" id="marathon-details">
+          <div class="event-details-inner">
+            <p class="notice-intro">On Saturday, April 11, 2026, RunFit will be hosting the <strong>Inaugural Albuquerque Marathon</strong> along with the <strong>22nd Annual Albuquerque Half Marathon</strong>, as well as a 10K, 5K, and Kids K.</p>
+            
+            <div class="notice-alert">
+              <strong>⚠️ No Road Closures</strong> — All streets will remain open to vehicle traffic. However, you may notice an increased presence of runners, volunteers, and event staff. Please use caution when driving.
+            </div>
+
+            <div class="notice-section">
+              <h5>📍 Start/Finish Location</h5>
+              <p>Sagebrush Community Church<br>6440 Coors Blvd NW<br>Albuquerque, NM 87120</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🏃 Start Times</h5>
+              <ul>
+                <li><strong>Marathon:</strong> 7:30 AM</li>
+                <li><strong>Half Marathon & Relay:</strong> 8:30 AM</li>
+                <li><strong>10K:</strong> 9:00 AM</li>
+                <li><strong>5K:</strong> 9:15 AM</li>
+                <li><strong>Kids K:</strong> 10:15 AM</li>
+              </ul>
+              <p class="notice-note">Runners will be on course from approximately 7:30 AM – 1:30 PM.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🗺️ Route Through Our Neighborhood</h5>
+              <p>South of Montano Blvd., the Marathon route follows the pedestrian/bike path east of the Rio Grande, then continues along <strong>Tingley Drive</strong>, <strong>Mountain Rd.</strong>, <strong>Candelaria Blvd.</strong>, and north on <strong>Rio Grande Blvd.</strong> to Montano Blvd.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🔗 Course Maps</h5>
+              <div class="course-links">
+                <a href="https://www.mapmyrun.com/routes/view/6224963041" target="_blank">Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224970081" target="_blank">Half Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224974401" target="_blank">10K Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224977281" target="_blank">5K Course</a>
+              </div>
+            </div>
+
+            <div class="notice-section notice-contact">
+              <h5>📞 Questions?</h5>
+              <p><strong>RunFit</strong> (501(c)(3) Non-Profit)<br>
+              Phone: <a href="tel:505-217-4774">505-217-4774</a><br>
+              Website: <a href="https://www.irunfit.org" target="_blank">www.irunfit.org</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="event-row featured expandable" onclick="toggleEventDetails(this)">
+          <div class="event-big-date"><div class="month">May</div><div class="day">13</div></div>
+          <div class="event-info">
+            <h4>Annual Neighborhood Meeting <span class="expand-icon">▼</span></h4>
+            <div class="event-meta">📍 Albuquerque Country Club, Banquet Room · 6:00 PM</div>
+          </div>
+          <span class="event-badge badge-featured">Annual</span>
+        </div>
+        <div class="event-details" id="annual-meeting-details" style="border-left-color: var(--terracotta);">
+          <div class="event-details-inner">
+            <p class="notice-intro">All residents of the Huning Castle neighborhood are cordially invited and encouraged to attend the <strong>2026 Annual Neighborhood Meeting</strong>. All residents of Huning Castle are automatically enrolled as members of the Association.</p>
+
+            <div class="notice-alert">
+              <strong>💵 Membership Contributions</strong> — Dues are not required, but suggested contributions of <strong>$25</strong> (individual residents) and <strong>$40</strong> (business members) are welcome and encouraged. Check or cash ONLY at the meeting, or pay via <strong>Zelle</strong> through your bank.
+            </div>
+
+            <div class="notice-section">
+              <h5>📋 Schedule</h5>
+              <ul>
+                <li>Registration opens at <strong>6:00 PM</strong></li>
+                <li>Meeting commences promptly at <strong>6:30 PM</strong></li>
+              </ul>
+            </div>
+
+            <div class="notice-section">
+              <h5>📝 Agenda</h5>
+              <ul>
+                <li><strong>1.</strong> Call to order &amp; opening remarks — <em>Brenda Marks</em></li>
+                <li><strong>2.</strong> Adoption of minutes from April 8, 2026 regular board meeting</li>
+                <li><strong>3.</strong> Special Guest: <em>Carl Christensen</em>, Bernalillo County Water Authority — resources, rebates &amp; programs to save on your water bill</li>
+                <li><strong>4.</strong> Open floor — ten minutes for residents to speak</li>
+                <li><strong>5.</strong> APD Crime/Safety Report — <em>Brittany Martinez</em>, Crime Prevention Specialist</li>
+                <li><strong>6.</strong> HCN Safety Patrol Report — <em>Rudy Garcia</em></li>
+                <li><strong>7.</strong> Committee reports: Quorum · Treasury (<em>Kendall Corley</em>) · HCALERT (<em>Lara Bryson</em>) · Website &amp; Communications</li>
+                <li><strong>8.</strong> Recognition of departing board members: <em>Erika Harding, Anna Lamberson, Lynn Hightower</em></li>
+                <li><strong>9.</strong> Announcement of new board members (2026–2029)</li>
+                <li><strong>10.</strong> Adjournment</li>
+              </ul>
+            </div>
+
+            <div class="notice-contact">
+              <h5>📥 Download Agenda</h5>
+              <p><a href="2026-annual-meeting-agenda.docx" download>2026 Annual Meeting Agenda (.docx)</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Jun</div><div class="day">10</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Jul</div><div class="day">8</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Aug</div><div class="day">12</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Sep</div><div class="day">9</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Oct</div><div class="day">14</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Nov</div><div class="day">11</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Dec</div><div class="day">9</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+      </div>
+      <div class="events-sidebar">
+        <div class="sidebar-card">
+          <div class="cal-month">April 2026</div>
+          <div class="mini-calendar-grid">
+            <div class="cal-header">Su</div><div class="cal-header">Mo</div><div class="cal-header">Tu</div>
+            <div class="cal-header">We</div><div class="cal-header">Th</div><div class="cal-header">Fr</div>
+            <div class="cal-header">Sa</div>
+            <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+            <div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day has-event">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day has-event">11</div>
+            <div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div>
+            <div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div>
+            <div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
+          </div>
+          <p style="font-size:0.78rem; color:var(--warm-gray); margin-top:1rem; text-align:center;">
+            <span style="color:var(--terracotta);">●</span> Event days
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Stay Informed</div>
+      <h2 class="section-title">Resources & Documents</h2>
+      <p class="section-desc">Helpful documents, guidelines, and links for Huning Castle residents.</p>
+    </div>
+    <div class="resources-grid">
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-pdf">📄</div>
+        <div class="resource-info">
+          <div class="title">Neighborhood Bylaws</div>
+          <div class="desc">Updated January 2026 · PDF</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-pdf">📋</div>
+        <div class="resource-info">
+          <div class="title">2025 Annual Report</div>
+          <div class="desc">Year in review · PDF</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-doc">🗓️</div>
+        <div class="resource-info">
+          <div class="title">Meeting Minutes Archive</div>
+          <div class="desc">Board meeting records</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-doc">🏡</div>
+        <div class="resource-info">
+          <div class="title">Historic District Guidelines</div>
+          <div class="desc">Renovation & preservation rules</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-link">🌐</div>
+        <div class="resource-info">
+          <div class="title">City of Albuquerque Services</div>
+          <div class="desc">Permits, utilities & more</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-doc">📬</div>
+        <div class="resource-info">
+          <div class="title">Newsletter Archive</div>
+          <div class="desc">Past issues · 2022–2026</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-pdf">📝</div>
+        <div class="resource-info">
+          <div class="title">Membership Form</div>
+          <div class="desc">Join or renew · PDF</div>
+        </div>
+      </a>
+      <a href="#" class="resource-item">
+        <div class="resource-icon icon-link">🚔</div>
+        <div class="resource-info">
+          <div class="title">APD Non-Emergency Contact</div>
+          <div class="desc">Report non-urgent concerns</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Meeting Agenda</div>
+      <h2 class="section-title">April 8, 2026 Board Meeting</h2>
+      <p class="section-desc">All residents of HCNA are invited to attend.</p>
+    </div>
+
+    <div class="agenda-layout" style="display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start;">
+
+      <!-- Agenda Items -->
+      <div style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 24px rgba(92,61,46,0.08);">
+        <div style="border-left: 4px solid var(--terracotta); padding-left: 1.25rem; margin-bottom: 2rem;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--bark); font-weight: 700;">Huning Castle Neighborhood Association</div>
+          <div style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--warm-gray); margin-top: 0.25rem;">Board of Directors Meeting</div>
+        </div>
+
+        <ol style="list-style: none; counter-reset: agenda-counter; display: flex; flex-direction: column; gap: 0;">
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">1.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Call to order.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">2.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Review and adoption of March 11, 2026 meeting minutes.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">3.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">HNC Safety Report: <strong>Rudy Garcia</strong></span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">4.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;"><strong>Carl Christensen</strong> of the Bernalillo County Water Authority will be the speaker for the annual meeting. Can Brenda purchase a $50 gift card from Duran's to give to him for presenting?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">5.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Rudy to discuss update on his conversations with ABQ Transit about Luminaria Tour and possible adjustment to how it will be done.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">6.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Continued discussion of Rudy's subcommittee's deliberations about a website and activities for the 2026 year.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">7.</span>
+            <div style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">
+              Reports (if available):
+              <ol type="a" style="margin-top: 0.5rem; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>Treasurer: <strong>Kendall Corley</strong></li>
+                <li>Neighborhood Get-togethers</li>
+              </ol>
+            </div>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">8.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any old business?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">9.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any new business?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">10.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Adjourn.</span>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Sidebar details -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: white; border-radius: 1.25rem; padding: 1.75rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">📋 Meeting Details</div>
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">📅</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Date</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">April 8, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">🕕</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Time</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">6:00 PM</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">📍</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Location</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">Ladies Card Room<br>Albuquerque Country Club</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background: rgba(196,98,45,0.07); border: 1.5px solid rgba(196,98,45,0.2); border-radius: 1.25rem; padding: 1.5rem;">
+          <div style="font-size: 0.85rem; color: var(--bark); line-height: 1.65; font-family: 'Lora', serif; font-style: italic;">
+            "All residents of HCNA are invited to attend."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about" style="background: var(--sand);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Huning Castle Neighborhood Association</h2>
+      <p class="section-desc">A historic community in the heart of Albuquerque — learn about who we are, who leads us, and where we come from.</p>
+    </div>
+
+    <!-- Sub-tab navigation -->
+    <div class="subtab-nav">
+      <button class="subtab-btn active" onclick="switchSubTab('history', this)">History</button>
+      <button class="subtab-btn" onclick="switchSubTab('board', this)">Board Members</button>
+      <button class="subtab-btn" onclick="switchSubTab('bylaws', this)">By-Laws</button>
+      <button class="subtab-btn" onclick="switchSubTab('boundaries', this)">Boundaries</button>
+    </div>
+
+    <!-- History -->
+    <div class="subtab-panel active" id="subtab-history">
+      <div class="history-prose">
+        <h3>A Place Rooted in Albuquerque History</h3>
+        <p>The story of Huning Castle begins with one man's ambition and a city on the cusp of transformation. Franz Huning, a German immigrant, arrived in New Mexico in 1849 after making the arduous journey down the Santa Fe Trail. By 1852 he had settled in Albuquerque's Old Town, where he built a thriving mercantile business alongside his brother Charles and became one of the city's most influential citizens.</p>
+        <p>Huning's greatest contribution to Albuquerque came in 1880, when he partnered with Elias Stover and William Hazeldine to form the New Town Company — working in concert with the Atchison, Topeka & Santa Fe Railway to secure Albuquerque as a major division point on the line. That same April, the partners platted the Huning Highlands Addition: Albuquerque's very first planned residential subdivision, offering tree-lined streets and graceful lots just east of the newly established New Town.</p>
+        <p>At the heart of this vision was Huning's own home. Between 1881 and 1883 he built a grand 14-room mansion using more than 250,000 <em>terrones</em> — sod bricks cut from a nearby meadow — and appointed it with furnishings including a Steinway grand piano and a pipe organ. Styled after the castles of his European homeland, the residence captured the imagination of everyone who saw it. Neighbors began calling it simply "Huning Castle," and the name never left.</p>
+        <p>After Franz Huning's death in 1905, the castle served various purposes, eventually operating as a school before being condemned and demolished in 1955. The building is gone, but its spirit endures in the streets, homes, and community it helped create.</p>
+        <p>Today the Huning Castle Neighborhood Association stewards one of Albuquerque's most historically rich communities. The Huning Highlands Historic District was listed on the <strong>National Register of Historic Places in 1978</strong>, recognizing the area's architectural character and cultural significance. With deep roots and an active, engaged association, Huning Castle remains what Franz Huning always intended it to be — a beautiful, welcoming place to call home.</p>
+      </div>
+    </div>
+
+    <!-- Board Members -->
+    <div class="subtab-panel" id="subtab-board">
+      <div class="board-grid">
+        <div class="board-member">
+          <div class="avatar">R</div>
+          <div class="name">Rudy Garcia</div>
+          <div class="email"><a href="mailto:rudy@tandemconsultingteam.com">rudy@tandemconsultingteam.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">L</div>
+          <div class="name">Lara Bryson</div>
+          <div class="email"><a href="mailto:lara.bryson@hotmail.com">lara.bryson@hotmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">A</div>
+          <div class="name">Anna Lamberson</div>
+          <div class="email"><a href="mailto:anna.lamberson@gmail.com">anna.lamberson@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">E</div>
+          <div class="name">Erika Harding</div>
+          <div class="email"><a href="mailto:erikadharding@gmail.com">erikadharding@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">M</div>
+          <div class="name">Mark Pinkalla</div>
+          <div class="email"><a href="mailto:mpinkalla@yahoo.com">mpinkalla@yahoo.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">J</div>
+          <div class="name">Jon Patterson</div>
+          <div class="email"><a href="mailto:jonppatterson@gmail.com">jonppatterson@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">F</div>
+          <div class="name">Fred Rivera</div>
+          <div class="email"><a href="mailto:FRivera354@aol.com">FRivera354@aol.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">R</div>
+          <div class="name">Robert Rodriguez</div>
+          <div class="email"><a href="mailto:Roberto.rodriguez2@gmail.com">Roberto.rodriguez2@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">L</div>
+          <div class="name">Lynn Hightower</div>
+          <div class="email"><a href="mailto:amerilyn@msn.com">amerilyn@msn.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">K</div>
+          <div class="name">Kendall Corley</div>
+          <div class="email"><a href="mailto:Corleynine@gmail.com">Corleynine@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">J</div>
+          <div class="name">Joanne Pinkalla</div>
+          <div class="email"><a href="mailto:jpinkalla@yahoo.com">jpinkalla@yahoo.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">B</div>
+          <div class="name">Brenda Marks</div>
+          <div class="email"><a href="mailto:brenda.marks648@gmail.com">brenda.marks648@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- By-Laws -->
+    <div class="subtab-panel" id="subtab-bylaws">
+      <div class="history-prose">
+        <h3>Neighborhood By-Laws</h3>
+        <p style="color: var(--warm-gray); font-style: italic;">The HCNA By-Laws document will be posted here. Please check back soon or contact a board member for the current version.</p>
+      </div>
+    </div>
+
+    <!-- Boundaries -->
+    <div class="subtab-panel" id="subtab-boundaries">
+      <div class="history-prose">
+        <h3>Neighborhood Boundaries</h3>
+        <p>The Huning Castle neighborhood occupies the heart of central Albuquerque. The general boundaries of the association are:</p>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin: 1.25rem 0;">
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬆</span><span><strong>North:</strong> Dr. Martin Luther King Jr. Avenue</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">➡</span><span><strong>East:</strong> Locust Street</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬇</span><span><strong>South:</strong> Coal Avenue</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬅</span><span><strong>West:</strong> BNSF Railroad Tracks</span>
+          </li>
+        </ul>
+        <p style="color: var(--warm-gray); font-size: 0.9rem; font-style: italic;">A detailed boundary map will be added here. Contact a board member if you have questions about whether your address falls within the association's boundaries.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Huning Castle Neighborhood Association</div>
+        <p>Serving the historic Huning Castle area of Albuquerque, NM. Building community, preserving history, and caring for our neighbors since our founding.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#meetings">Meetings</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#citynews">City News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#3851565e5778505b565916574a5f"><span class="__cf_email__" data-cfemail="e68f888089a68e858887c8899481">[email&#160;protected]</span></a></li>
+          <li><a href="#">P.O. Box 1234</a></li>
+          <li><a href="#">Albuquerque, NM 87106</a></li>
+          <li><a href="#">Board meetings: 2nd Wednesday</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Huning Castle Neighborhood Association. All rights reserved.</span>
+      <span>Made with ♥ for our community</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sub-tab switcher
+  function switchSubTab(id, btn) {
+    const section = btn.closest('section');
+    section.querySelectorAll('.subtab-panel').forEach(p => p.classList.remove('active'));
+    section.querySelectorAll('.subtab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('subtab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Expandable event cards
+  function toggleEventDetails(element) {
+    const details = element.nextElementSibling;
+    const isActive = element.classList.contains('active');
+    
+    // Close all other expanded events
+    document.querySelectorAll('.event-row.expandable.active').forEach(el => {
+      if (el !== element) {
+        el.classList.remove('active');
+        el.nextElementSibling.classList.remove('active');
+      }
+    });
+    
+    // Toggle current
+    element.classList.toggle('active');
+    details.classList.toggle('active');
+  }
+
+  // Hamburger menu toggle
+  function toggleMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  }
+  
+  function closeMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close menu on resize if switching to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+
+  // Scroll spy for floating nav
+  const sections = ['home','events','resources','agenda','contact'];
+  const navLinks = document.querySelectorAll('.float-nav a');
+  function updateActive() {
+    let current = 'home';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateActive);
+  updateActive();
+</script>
+
+</body>
+</html>
