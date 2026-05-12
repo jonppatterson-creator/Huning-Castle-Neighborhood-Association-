@@ -44,13 +44,112 @@
     <div class="section-header">
       <div class="section-label">Neighborhood Safety</div>
       <h2 class="section-title">Safety Resources &amp; Reports</h2>
-      <p class="section-desc">Information about neighborhood safety patrols, APD reports, and how to stay safe in our community.</p>
+      <p class="section-desc">Contact information, crime mapping tools, and safety resources for Huning Castle residents.</p>
     </div>
-    <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07); max-width: 680px;">
-      <p style="font-family: 'Lora', serif; font-size: 1rem; color: var(--warm-gray); line-height: 1.75; font-style: italic;">Safety content is being prepared. Check back soon for APD crime reports, safety patrol updates, and neighborhood watch information.</p>
+
+    <div id="safety-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+      <!-- LEFT COLUMN -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+        <!-- Emergency Contacts Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">📞 Emergency &amp; Non-Emergency Contacts</div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--terracotta); font-weight: 700; margin-bottom: 0.25rem;">Emergency: Call 911</div>
+            <div style="font-size: 0.85rem; color: var(--warm-gray);">Police · Fire · Medical</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="border-left: 3px solid var(--gold); padding-left: 1rem;">
+              <div style="font-weight: 500; font-size: 0.92rem; color: var(--bark); margin-bottom: 0.2rem;">APD Non-Emergency Line</div>
+              <div style="font-size: 1rem; color: var(--charcoal); margin-bottom: 0.35rem;"><a href="tel:5052422677" style="color: var(--terracotta); text-decoration: none; font-weight: 500;">505-242-COPS (505-242-2677)</a></div>
+              <div style="font-size: 0.8rem; color: var(--warm-gray); line-height: 1.5;">For non-emergency police reports, noise complaints, suspicious activity, and general inquiries</div>
+            </div>
+            <div style="border-left: 3px solid var(--sage); padding-left: 1rem;">
+              <div style="font-weight: 500; font-size: 0.92rem; color: var(--bark); margin-bottom: 0.2rem;">Crime Stoppers</div>
+              <div style="font-size: 1rem; color: var(--charcoal); margin-bottom: 0.35rem;"><a href="tel:5058437867" style="color: var(--terracotta); text-decoration: none; font-weight: 500;">505-843-STOP (505-843-7867)</a></div>
+              <div style="font-size: 0.8rem; color: var(--warm-gray);">Anonymous tips</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HCN Safety Patrol Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">🚶 Huning Castle Safety Patrol</div>
+          <p style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--charcoal); line-height: 1.75; margin-bottom: 1.25rem;">Our neighborhood safety patrol helps keep Huning Castle safe. Reports are presented at monthly board meetings by Rudy Garcia.</p>
+          <div style="background: var(--sand); border-radius: 0.75rem; padding: 0.9rem 1.1rem; font-size: 0.875rem; color: var(--bark);">
+            <span style="font-weight: 500;">Contact Rudy Garcia:</span><br>
+            <a href="mailto:rudy@tandemconsultingteam.com" style="color: var(--terracotta); text-decoration: none;">rudy@tandemconsultingteam.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+        <!-- Crime Mapping Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">🗺️ Crime Mapping &amp; Data</div>
+          <p style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--charcoal); line-height: 1.75; margin-bottom: 1.25rem;">View local crime data from APD's Calls for Service on the official City of Albuquerque crime map.</p>
+          <a href="https://www.cabq.gov/police/online-services/crime-mapping" target="_blank" rel="noopener" class="btn-primary" style="display: inline-block; margin-bottom: 1.25rem;">View Albuquerque Crime Map →</a>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+            <a href="https://www.cabq.gov/police/crime-statistics" target="_blank" rel="noopener" class="resource-item" style="padding: 0.85rem 1rem;">
+              <div class="resource-icon icon-link" style="width: 36px; height: 36px; font-size: 1rem;">📊</div>
+              <div class="resource-info">
+                <div class="title">APD Crime Statistics</div>
+                <div class="desc">cabq.gov</div>
+              </div>
+            </a>
+            <a href="https://www.arcgis.com/apps/dashboards/c1f11078950240daba6002f4a4eadb1e" target="_blank" rel="noopener" class="resource-item" style="padding: 0.85rem 1rem;">
+              <div class="resource-icon icon-link" style="width: 36px; height: 36px; font-size: 1rem;">📡</div>
+              <div class="resource-info">
+                <div class="title">APD CAD Incident Dashboard</div>
+                <div class="desc">Live calls for service · ArcGIS</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Safety Tips Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">✅ Neighborhood Safety Tips</div>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.85rem;">
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--terracotta); flex-shrink: 0;">●</span>
+              <span>Keep porch lights on at night</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--terracotta); flex-shrink: 0;">●</span>
+              <span>Report suspicious activity to APD non-emergency: <a href="tel:5052422677" style="color: var(--terracotta); text-decoration: none; font-weight: 500;">505-242-COPS</a></span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--terracotta); flex-shrink: 0;">●</span>
+              <span>Lock vehicles and don't leave valuables visible</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--terracotta); flex-shrink: 0;">●</span>
+              <span>Get to know your neighbors — community awareness is the best deterrent</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--terracotta); flex-shrink: 0;">●</span>
+              <span>Sign up for HCALERT notifications — contact <a href="mailto:lara.bryson@hotmail.com" style="color: var(--terracotta); text-decoration: none; font-weight: 500;">Lara Bryson</a></span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 700px) {
+    #safety-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
 
 <!-- FOOTER -->
 <footer>
