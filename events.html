@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meetings &amp; Events — Huning Castle Neighborhood Association</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand" style="text-decoration:none;">Huning <span>Castle</span> NA</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="events.html" class="nav-active">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="safety.html">Safety</a></li>
+    <li><a href="citynews.html">City News</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html" onclick="closeMenu()">About Us</a></li>
+    <li><a href="events.html" class="nav-active" onclick="closeMenu()">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="safety.html" onclick="closeMenu()">Safety</a></li>
+    <li><a href="citynews.html" onclick="closeMenu()">City News</a></li>
+  </ul>
+</div>
+
+<!-- EVENTS -->
+<section id="events" style="padding-top: calc(64px + 3rem);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Get Together</div>
+      <h2 class="section-title">Events Calendar</h2>
+      <p class="section-desc">From monthly meetings to neighborhood socials — there's always something to join.</p>
+    </div>
+    <div class="events-layout">
+      <div class="events-list">
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Apr</div><div class="day">8</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row community expandable" onclick="toggleEventDetails(this)">
+          <div class="event-big-date"><div class="month">Apr</div><div class="day">11</div></div>
+          <div class="event-info">
+            <h4>Albuquerque Marathon &amp; Half Marathon <span class="expand-icon">▼</span></h4>
+            <div class="event-meta">📍 Runners through neighborhood · 7:30 AM – 1:30 PM</div>
+          </div>
+          <span class="event-badge badge-community">Community</span>
+        </div>
+        <div class="event-details" id="marathon-details">
+          <div class="event-details-inner">
+            <p class="notice-intro">On Saturday, April 11, 2026, RunFit will be hosting the <strong>Inaugural Albuquerque Marathon</strong> along with the <strong>22nd Annual Albuquerque Half Marathon</strong>, as well as a 10K, 5K, and Kids K.</p>
+
+            <div class="notice-alert">
+              <strong>⚠️ No Road Closures</strong> — All streets will remain open to vehicle traffic. However, you may notice an increased presence of runners, volunteers, and event staff. Please use caution when driving.
+            </div>
+
+            <div class="notice-section">
+              <h5>📍 Start/Finish Location</h5>
+              <p>Sagebrush Community Church<br>6440 Coors Blvd NW<br>Albuquerque, NM 87120</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🏃 Start Times</h5>
+              <ul>
+                <li><strong>Marathon:</strong> 7:30 AM</li>
+                <li><strong>Half Marathon &amp; Relay:</strong> 8:30 AM</li>
+                <li><strong>10K:</strong> 9:00 AM</li>
+                <li><strong>5K:</strong> 9:15 AM</li>
+                <li><strong>Kids K:</strong> 10:15 AM</li>
+              </ul>
+              <p class="notice-note">Runners will be on course from approximately 7:30 AM – 1:30 PM.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🗺️ Route Through Our Neighborhood</h5>
+              <p>South of Montano Blvd., the Marathon route follows the pedestrian/bike path east of the Rio Grande, then continues along <strong>Tingley Drive</strong>, <strong>Mountain Rd.</strong>, <strong>Candelaria Blvd.</strong>, and north on <strong>Rio Grande Blvd.</strong> to Montano Blvd.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🔗 Course Maps</h5>
+              <div class="course-links">
+                <a href="https://www.mapmyrun.com/routes/view/6224963041" target="_blank">Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224970081" target="_blank">Half Marathon Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224974401" target="_blank">10K Course</a>
+                <a href="https://www.mapmyrun.com/routes/view/6224977281" target="_blank">5K Course</a>
+              </div>
+            </div>
+
+            <div class="notice-section notice-contact">
+              <h5>📞 Questions?</h5>
+              <p><strong>RunFit</strong> (501(c)(3) Non-Profit)<br>
+              Phone: <a href="tel:505-217-4774">505-217-4774</a><br>
+              Website: <a href="https://www.irunfit.org" target="_blank">www.irunfit.org</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="event-row featured expandable" onclick="toggleEventDetails(this)">
+          <div class="event-big-date"><div class="month">May</div><div class="day">13</div></div>
+          <div class="event-info">
+            <h4>Annual Neighborhood Meeting <span class="expand-icon">▼</span></h4>
+            <div class="event-meta">📍 Albuquerque Country Club, Banquet Room · 6:00 PM</div>
+          </div>
+          <span class="event-badge badge-featured">Annual</span>
+        </div>
+        <div class="event-details" id="annual-meeting-details" style="border-left-color: var(--terracotta);">
+          <div class="event-details-inner">
+            <p class="notice-intro">All residents of the Huning Castle neighborhood are cordially invited and encouraged to attend the <strong>2026 Annual Neighborhood Meeting</strong>. All residents of Huning Castle are automatically enrolled as members of the Association.</p>
+
+            <div class="notice-alert">
+              <strong>💵 Membership Contributions</strong> — Dues are not required, but suggested contributions of <strong>$25</strong> (individual residents) and <strong>$40</strong> (business members) are welcome and encouraged. Check or cash ONLY at the meeting, or pay via <strong>Zelle</strong> through your bank.
+            </div>
+
+            <div class="notice-section">
+              <h5>📋 Schedule</h5>
+              <ul>
+                <li>Registration opens at <strong>6:00 PM</strong></li>
+                <li>Meeting commences promptly at <strong>6:30 PM</strong></li>
+              </ul>
+            </div>
+
+            <div class="notice-section">
+              <h5>📝 Agenda</h5>
+              <ul>
+                <li><strong>1.</strong> Call to order &amp; opening remarks — <em>Brenda Marks</em></li>
+                <li><strong>2.</strong> Adoption of minutes from April 8, 2026 regular board meeting</li>
+                <li><strong>3.</strong> Special Guest: <em>Carl Christensen</em>, Bernalillo County Water Authority — resources, rebates &amp; programs to save on your water bill</li>
+                <li><strong>4.</strong> Open floor — ten minutes for residents to speak</li>
+                <li><strong>5.</strong> APD Crime/Safety Report — <em>Brittany Martinez</em>, Crime Prevention Specialist</li>
+                <li><strong>6.</strong> HCN Safety Patrol Report — <em>Rudy Garcia</em></li>
+                <li><strong>7.</strong> Committee reports: Quorum · Treasury (<em>Kendall Corley</em>) · HCALERT (<em>Lara Bryson</em>) · Website &amp; Communications</li>
+                <li><strong>8.</strong> Recognition of departing board members: <em>Erika Harding, Anna Lamberson, Lynn Hightower</em></li>
+                <li><strong>9.</strong> Announcement of new board members (2026–2029)</li>
+                <li><strong>10.</strong> Adjournment</li>
+              </ul>
+            </div>
+
+            <div class="notice-contact">
+              <h5>📥 Download Agenda</h5>
+              <p><a href="2026-annual-meeting-agenda.docx" download>2026 Annual Meeting Agenda (.docx)</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Jun</div><div class="day">10</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Jul</div><div class="day">8</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Aug</div><div class="day">12</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Sep</div><div class="day">9</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Oct</div><div class="day">14</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Nov</div><div class="day">11</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Dec</div><div class="day">9</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+      </div>
+      <div class="events-sidebar">
+        <div class="sidebar-card">
+          <div class="cal-month">April 2026</div>
+          <div class="mini-calendar-grid">
+            <div class="cal-header">Su</div><div class="cal-header">Mo</div><div class="cal-header">Tu</div>
+            <div class="cal-header">We</div><div class="cal-header">Th</div><div class="cal-header">Fr</div>
+            <div class="cal-header">Sa</div>
+            <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div>
+            <div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day has-event">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day has-event">11</div>
+            <div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div>
+            <div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div>
+            <div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
+          </div>
+          <p style="font-size:0.78rem; color:var(--warm-gray); margin-top:1rem; text-align:center;">
+            <span style="color:var(--terracotta);">●</span> Event days
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Meeting Agenda</div>
+      <h2 class="section-title">April 8, 2026 Board Meeting</h2>
+      <p class="section-desc">All residents of HCNA are invited to attend.</p>
+    </div>
+
+    <div class="agenda-layout" style="display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start;">
+
+      <!-- Agenda Items -->
+      <div style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 24px rgba(92,61,46,0.08);">
+        <div style="border-left: 4px solid var(--terracotta); padding-left: 1.25rem; margin-bottom: 2rem;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--bark); font-weight: 700;">Huning Castle Neighborhood Association</div>
+          <div style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--warm-gray); margin-top: 0.25rem;">Board of Directors Meeting</div>
+        </div>
+
+        <ol style="list-style: none; counter-reset: agenda-counter; display: flex; flex-direction: column; gap: 0;">
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">1.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Call to order.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">2.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Review and adoption of March 11, 2026 meeting minutes.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">3.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">HNC Safety Report: <strong>Rudy Garcia</strong></span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">4.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;"><strong>Carl Christensen</strong> of the Bernalillo County Water Authority will be the speaker for the annual meeting. Can Brenda purchase a $50 gift card from Duran's to give to him for presenting?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">5.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Rudy to discuss update on his conversations with ABQ Transit about Luminaria Tour and possible adjustment to how it will be done.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">6.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Continued discussion of Rudy's subcommittee's deliberations about a website and activities for the 2026 year.</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">7.</span>
+            <div style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">
+              Reports (if available):
+              <ol type="a" style="margin-top: 0.5rem; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                <li>Treasurer: <strong>Kendall Corley</strong></li>
+                <li>Neighborhood Get-togethers</li>
+              </ol>
+            </div>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">8.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any old business?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">9.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any new business?</span>
+          </li>
+          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">10.</span>
+            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Adjourn.</span>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Sidebar details -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: white; border-radius: 1.25rem; padding: 1.75rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">📋 Meeting Details</div>
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">📅</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Date</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">April 8, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">🕕</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Time</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">6:00 PM</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="font-size: 1rem;">📍</span>
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Location</div>
+                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">Ladies Card Room<br>Albuquerque Country Club</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background: rgba(196,98,45,0.07); border: 1.5px solid rgba(196,98,45,0.2); border-radius: 1.25rem; padding: 1.5rem;">
+          <div style="font-size: 0.85rem; color: var(--bark); line-height: 1.65; font-family: 'Lora', serif; font-style: italic;">
+            "All residents of HCNA are invited to attend."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Huning Castle Neighborhood Association</div>
+        <p>Serving the historic Huning Castle area of Albuquerque, NM. Building community, preserving history, and caring for our neighbors since our founding.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Meetings &amp; Events</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="citynews.html">City News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#3851565e5778505b565916574a5f"><span class="__cf_email__" data-cfemail="e68f888089a68e858887c8899481">[email&#160;protected]</span></a></li>
+          <li><a href="#">P.O. Box 1234</a></li>
+          <li><a href="#">Albuquerque, NM 87106</a></li>
+          <li><a href="#">Board meetings: 2nd Wednesday</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Huning Castle Neighborhood Association. All rights reserved.</span>
+      <span>Made with ♥ for our community</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
