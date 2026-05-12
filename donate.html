@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate — Huning Castle Neighborhood Association</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand" style="text-decoration:none;">Huning <span>Castle</span> NA</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="events.html">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="safety.html">Safety</a></li>
+    <li><a href="citynews.html">City News</a></li>
+    <li><a href="donate.html" class="nav-active">Donate</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html" onclick="closeMenu()">About Us</a></li>
+    <li><a href="events.html" onclick="closeMenu()">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="safety.html" onclick="closeMenu()">Safety</a></li>
+    <li><a href="citynews.html" onclick="closeMenu()">City News</a></li>
+    <li><a href="donate.html" class="nav-active" onclick="closeMenu()">Donate</a></li>
+  </ul>
+</div>
+
+<!-- DONATE -->
+<section style="background: var(--cream); padding-top: calc(64px + 3rem);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Support Your Neighborhood</div>
+      <h2 class="section-title">Donate</h2>
+      <p class="section-desc">All residents of Huning Castle are automatically members of the Association. Donations are not required, but your contributions help fund safety patrols, community events, newsletters, and neighborhood improvements.</p>
+    </div>
+
+    <div id="donate-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+      <!-- LEFT COLUMN -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+        <!-- Suggested Amounts Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">Suggested Donation Amounts</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+            <div style="background: var(--sand); border-radius: 1rem; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm-gray); font-weight: 500; margin-bottom: 0.5rem;">Individual Resident</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--terracotta); line-height: 1;">$25</div>
+            </div>
+            <div style="background: var(--sand); border-radius: 1rem; padding: 1.5rem; text-align: center;">
+              <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--warm-gray); font-weight: 500; margin-bottom: 0.5rem;">Business Member</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--terracotta); line-height: 1;">$40</div>
+            </div>
+          </div>
+          <p style="font-family: 'Lora', serif; font-size: 0.9rem; color: var(--warm-gray); line-height: 1.65; font-style: italic;">These are suggested amounts — any contribution is gratefully received. Every dollar goes directly to our neighborhood.</p>
+        </div>
+
+        <!-- Zelle Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">💳 Donate with Zelle</div>
+          <p style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--charcoal); line-height: 1.75; margin-bottom: 1.25rem;">Send your donation via Zelle through your bank's mobile app or website.</p>
+
+          <div class="notice-alert" style="margin-bottom: 1.25rem;">
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500; margin-bottom: 0.4rem;">Zelle Recipient</div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--bark); font-weight: 700;">
+              <a href="mailto:brenda.marks648@gmail.com" style="color: var(--bark); text-decoration: none;">brenda.marks648@gmail.com</a>
+            </div>
+          </div>
+
+          <div style="background: var(--sand); border-radius: 0.75rem; padding: 0.9rem 1.1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--bark); line-height: 1.6;">
+            📝 Please include your <strong>name and address</strong> in the Zelle memo so we can record your donation.
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--warm-gray); line-height: 1.6;">Zelle is free — no fees for you or the Association. Most major banks support Zelle directly in their mobile app.</p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+        <!-- Other Ways Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">🏦 Other Ways to Donate</div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="border-left: 3px solid var(--gold); padding-left: 1rem;">
+              <div style="font-weight: 500; font-size: 0.92rem; color: var(--bark); margin-bottom: 0.35rem;">Check or Cash</div>
+              <p style="font-size: 0.875rem; color: var(--charcoal); line-height: 1.6;">Accepted at any board meeting (2nd Wednesday of each month) or at the Annual Meeting.</p>
+            </div>
+            <div style="border-left: 3px solid var(--sage); padding-left: 1rem;">
+              <div style="font-weight: 500; font-size: 0.92rem; color: var(--bark); margin-bottom: 0.35rem;">Mail a Check</div>
+              <p style="font-size: 0.875rem; color: var(--charcoal); line-height: 1.6;">
+                Huning Castle Neighborhood Association<br>
+                P.O. Box 1234<br>
+                Albuquerque, NM 87106
+              </p>
+            </div>
+            <div style="background: var(--sand); border-radius: 0.75rem; padding: 0.9rem 1.1rem; font-size: 0.875rem; color: var(--bark);">
+              Make checks payable to: <strong>"Huning Castle Neighborhood Association"</strong> or <strong>"HCNA"</strong>
+            </div>
+          </div>
+
+          <p style="font-family: 'Lora', serif; font-size: 0.85rem; color: var(--warm-gray); font-style: italic; margin-top: 1.25rem;">Additional online payment options coming soon.</p>
+        </div>
+
+        <!-- Where Donations Go Card -->
+        <div style="background: white; border-radius: 1.25rem; padding: 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--bark); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">Where Your Donations Go</div>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>Neighborhood safety patrols</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>Community events and gatherings</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>Newsletter printing and distribution</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>Website maintenance</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>HCALERT notification system</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--charcoal); line-height: 1.5;">
+              <span style="color: var(--sage); flex-shrink: 0; font-weight: 700;">✓</span>
+              <span>Neighborhood beautification</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Questions — full width -->
+    <div style="margin-top: 1.5rem; background: white; border-radius: 1.25rem; padding: 1.75rem 2rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--bark); margin-bottom: 0.25rem;">Questions about donations or membership?</div>
+        <div style="font-size: 0.875rem; color: var(--warm-gray);">Contact our Treasurer — we're happy to help.</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-weight: 500; font-size: 0.92rem; color: var(--bark);">Kendall Corley, Treasurer</div>
+        <div style="margin-top: 0.2rem;"><a href="mailto:Corleynine@gmail.com" style="color: var(--terracotta); text-decoration: none; font-size: 0.875rem;">Corleynine@gmail.com</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 700px) {
+    #donate-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Huning Castle Neighborhood Association</div>
+        <p>Serving the historic Huning Castle area of Albuquerque, NM. Building community, preserving history, and caring for our neighbors since our founding.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Meetings &amp; Events</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="citynews.html">City News</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#3851565e5778505b565916574a5f"><span class="__cf_email__" data-cfemail="e68f888089a68e858887c8899481">[email&#160;protected]</span></a></li>
+          <li><a href="#">P.O. Box 1234</a></li>
+          <li><a href="#">Albuquerque, NM 87106</a></li>
+          <li><a href="#">Board meetings: 2nd Wednesday</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Huning Castle Neighborhood Association. All rights reserved.</span>
+      <span>Made with ♥ for our community</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
