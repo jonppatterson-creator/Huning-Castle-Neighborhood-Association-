@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Huning Castle Neighborhood Association</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand" style="text-decoration:none;">Huning <span>Castle</span> NA</a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="nav-active">About Us</a></li>
+    <li><a href="events.html">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="safety.html">Safety</a></li>
+    <li><a href="citynews.html">City News</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="about.html" class="nav-active" onclick="closeMenu()">About Us</a></li>
+    <li><a href="events.html" onclick="closeMenu()">Meetings &amp; Events</a></li>
+    <li><a href="newsletter.html" onclick="closeMenu()">Newsletter</a></li>
+    <li><a href="safety.html" onclick="closeMenu()">Safety</a></li>
+    <li><a href="citynews.html" onclick="closeMenu()">City News</a></li>
+  </ul>
+</div>
+
+<!-- ABOUT US -->
+<section id="about" style="background: var(--sand); padding-top: calc(64px + 3rem);">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Huning Castle Neighborhood Association</h2>
+      <p class="section-desc">A historic community in the heart of Albuquerque — learn about who we are, who leads us, and where we come from.</p>
+    </div>
+
+    <!-- Sub-tab navigation -->
+    <div class="subtab-nav">
+      <button class="subtab-btn active" onclick="switchSubTab('history', this)">History</button>
+      <button class="subtab-btn" onclick="switchSubTab('board', this)">Board Members</button>
+      <button class="subtab-btn" onclick="switchSubTab('bylaws', this)">By-Laws</button>
+      <button class="subtab-btn" onclick="switchSubTab('boundaries', this)">Boundaries</button>
+    </div>
+
+    <!-- History -->
+    <div class="subtab-panel active" id="subtab-history">
+      <div class="history-prose">
+        <h3>A Place Rooted in Albuquerque History</h3>
+        <p>The story of Huning Castle begins with one man's ambition and a city on the cusp of transformation. Franz Huning, a German immigrant, arrived in New Mexico in 1849 after making the arduous journey down the Santa Fe Trail. By 1852 he had settled in Albuquerque's Old Town, where he built a thriving mercantile business alongside his brother Charles and became one of the city's most influential citizens.</p>
+        <p>Huning's greatest contribution to Albuquerque came in 1880, when he partnered with Elias Stover and William Hazeldine to form the New Town Company — working in concert with the Atchison, Topeka &amp; Santa Fe Railway to secure Albuquerque as a major division point on the line. That same April, the partners platted the Huning Highlands Addition: Albuquerque's very first planned residential subdivision, offering tree-lined streets and graceful lots just east of the newly established New Town.</p>
+        <p>At the heart of this vision was Huning's own home. Between 1881 and 1883 he built a grand 14-room mansion using more than 250,000 <em>terrones</em> — sod bricks cut from a nearby meadow — and appointed it with furnishings including a Steinway grand piano and a pipe organ. Styled after the castles of his European homeland, the residence captured the imagination of everyone who saw it. Neighbors began calling it simply "Huning Castle," and the name never left.</p>
+        <p>After Franz Huning's death in 1905, the castle served various purposes, eventually operating as a school before being condemned and demolished in 1955. The building is gone, but its spirit endures in the streets, homes, and community it helped create.</p>
+        <p>Today the Huning Castle Neighborhood Association stewards one of Albuquerque's most historically rich communities. The Huning Highlands Historic District was listed on the <strong>National Register of Historic Places in 1978</strong>, recognizing the area's architectural character and cultural significance. With deep roots and an active, engaged association, Huning Castle remains what Franz Huning always intended it to be — a beautiful, welcoming place to call home.</p>
+      </div>
+    </div>
+
+    <!-- Board Members -->
+    <div class="subtab-panel" id="subtab-board">
+      <div class="board-grid">
+        <div class="board-member">
+          <div class="avatar">R</div>
+          <div class="name">Rudy Garcia</div>
+          <div class="email"><a href="mailto:rudy@tandemconsultingteam.com">rudy@tandemconsultingteam.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">L</div>
+          <div class="name">Lara Bryson</div>
+          <div class="email"><a href="mailto:lara.bryson@hotmail.com">lara.bryson@hotmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">A</div>
+          <div class="name">Anna Lamberson</div>
+          <div class="email"><a href="mailto:anna.lamberson@gmail.com">anna.lamberson@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">E</div>
+          <div class="name">Erika Harding</div>
+          <div class="email"><a href="mailto:erikadharding@gmail.com">erikadharding@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">M</div>
+          <div class="name">Mark Pinkalla</div>
+          <div class="email"><a href="mailto:mpinkalla@yahoo.com">mpinkalla@yahoo.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">J</div>
+          <div class="name">Jon Patterson</div>
+          <div class="email"><a href="mailto:jonppatterson@gmail.com">jonppatterson@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">F</div>
+          <div class="name">Fred Rivera</div>
+          <div class="email"><a href="mailto:FRivera354@aol.com">FRivera354@aol.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">R</div>
+          <div class="name">Robert Rodriguez</div>
+          <div class="email"><a href="mailto:Roberto.rodriguez2@gmail.com">Roberto.rodriguez2@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">L</div>
+          <div class="name">Lynn Hightower</div>
+          <div class="email"><a href="mailto:amerilyn@msn.com">amerilyn@msn.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">K</div>
+          <div class="name">Kendall Corley</div>
+          <div class="email"><a href="mailto:Corleynine@gmail.com">Corleynine@gmail.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">J</div>
+          <div class="name">Joanne Pinkalla</div>
+          <div class="email"><a href="mailto:jpinkalla@yahoo.com">jpinkalla@yahoo.com</a></div>
+        </div>
+        <div class="board-member">
+          <div class="avatar">B</div>
+          <div class="name">Brenda Marks</div>
+          <div class="email"><a href="mailto:brenda.marks648@gmail.com">brenda.marks648@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- By-Laws -->
+    <div class="subtab-panel" id="subtab-bylaws">
+      <div class="history-prose">
+        <h3>Neighborhood By-Laws</h3>
+        <p style="color: var(--warm-gray); font-style: italic;">The HCNA By-Laws document will be posted here. Please check back soon or contact a board member for the current version.</p>
+      </div>
+    </div>
+
+    <!-- Boundaries -->
+    <div class="subtab-panel" id="subtab-boundaries">
+      <div class="history-prose">
+        <h3>Neighborhood Boundaries</h3>
+        <p>The Huning Castle neighborhood occupies the heart of central Albuquerque. The general boundaries of the association are:</p>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; margin: 1.25rem 0;">
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬆</span><span><strong>North:</strong> Dr. Martin Luther King Jr. Avenue</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">➡</span><span><strong>East:</strong> Locust Street</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬇</span><span><strong>South:</strong> Coal Avenue</span>
+          </li>
+          <li style="display: flex; gap: 1rem; align-items: center; font-family: 'Lora', serif; font-size: 1rem; color: var(--charcoal);">
+            <span style="font-size: 1.1rem;">⬅</span><span><strong>West:</strong> BNSF Railroad Tracks</span>
+          </li>
+        </ul>
+        <p style="color: var(--warm-gray); font-size: 0.9rem; font-style: italic;">A detailed boundary map will be added here. Contact a board member if you have questions about whether your address falls within the association's boundaries.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Huning Castle Neighborhood Association</div>
+        <p>Serving the historic Huning Castle area of Albuquerque, NM. Building community, preserving history, and caring for our neighbors since our founding.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Meetings &amp; Events</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="safety.html">Safety</a></li>
+          <li><a href="citynews.html">City News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection#3851565e5778505b565916574a5f"><span class="__cf_email__" data-cfemail="e68f888089a68e858887c8899481">[email&#160;protected]</span></a></li>
+          <li><a href="#">P.O. Box 1234</a></li>
+          <li><a href="#">Albuquerque, NM 87106</a></li>
+          <li><a href="#">Board meetings: 2nd Wednesday</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Huning Castle Neighborhood Association. All rights reserved.</span>
+      <span>Made with ♥ for our community</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
