@@ -378,64 +378,59 @@
 
 <script src="js/main.js"></script>
 <script>
-  (function() {
-    const eventDates = new Set([
-      '2026-04-08', '2026-04-11',
-      '2026-05-13',
-      '2026-06-10',
-      '2026-07-08',
-      '2026-08-12',
-      '2026-09-09',
-      '2026-10-14',
-      '2026-11-11',
-      '2026-12-09'
-    ]);
+  // ─── DYNAMIC CALENDAR ───
+  const eventDates = [
+    { year: 2026, month: 3, day: 8 },   // Apr 8 board meeting
+    { year: 2026, month: 3, day: 11 },  // Apr 11 marathon
+    { year: 2026, month: 4, day: 13 },  // May 13 annual meeting
+    { year: 2026, month: 5, day: 10 },  // Jun 10
+    { year: 2026, month: 6, day: 8 },   // Jul 8
+    { year: 2026, month: 7, day: 12 },  // Aug 12
+    { year: 2026, month: 8, day: 9 },   // Sep 9
+    { year: 2026, month: 9, day: 14 },  // Oct 14
+    { year: 2026, month: 10, day: 11 }, // Nov 11
+    { year: 2026, month: 11, day: 9 },  // Dec 9
+  ];
 
+  let calDate = new Date();
+  calDate.setDate(1);
+
+  function hasEvent(year, month, day) {
+    return eventDates.some(e => e.year === year && e.month === month && e.day === day);
+  }
+
+  function renderCalendar() {
+    const year = calDate.getFullYear();
+    const month = calDate.getMonth();
     const today = new Date();
-    let viewYear = today.getFullYear();
-    let viewMonth = today.getMonth();
+    const label = calDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    document.getElementById('calMonthLabel').textContent = label;
 
-    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    const dayHeaders = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const headers = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    let html = headers.map(h => '<div class="cal-header">' + h + '</div>').join('');
 
-    function renderCalendar() {
-      document.getElementById('calMonthLabel').textContent = monthNames[viewMonth] + ' ' + viewYear;
-
-      const firstDay = new Date(viewYear, viewMonth, 1).getDay();
-      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-
-      let html = dayHeaders.map(d => `<div class="cal-header">${d}</div>`).join('');
-
-      for (let i = 0; i < firstDay; i++) {
-        html += '<div class="cal-day empty"></div>';
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateStr = viewYear + '-' +
-          String(viewMonth + 1).padStart(2, '0') + '-' +
-          String(day).padStart(2, '0');
-        const isToday = day === today.getDate() && viewMonth === today.getMonth() && viewYear === today.getFullYear();
-        const hasEvent = eventDates.has(dateStr);
-
-        let cls = 'cal-day';
-        if (isToday) cls += ' today';
-        else if (hasEvent) cls += ' has-event';
-
-        html += `<div class="${cls}">${day}</div>`;
-      }
-
-      document.getElementById('calGrid').innerHTML = html;
+    for (let i = 0; i < firstDay; i++) {
+      html += '<div class="cal-day empty"></div>';
     }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const isToday = (d === today.getDate() && month === today.getMonth() && year === today.getFullYear());
+      const isEvent = hasEvent(year, month, d);
+      let cls = 'cal-day';
+      if (isToday) cls += ' today';
+      else if (isEvent) cls += ' has-event';
+      html += '<div class="' + cls + '">' + d + '</div>';
+    }
+    document.getElementById('calGrid').innerHTML = html;
+  }
 
-    window.changeCalMonth = function(delta) {
-      viewMonth += delta;
-      if (viewMonth < 0)  { viewMonth = 11; viewYear--; }
-      if (viewMonth > 11) { viewMonth = 0;  viewYear++; }
-      renderCalendar();
-    };
-
+  function changeCalMonth(delta) {
+    calDate.setMonth(calDate.getMonth() + delta);
     renderCalendar();
-  })();
+  }
+
+  renderCalendar();
 </script>
 </body>
 </html>
