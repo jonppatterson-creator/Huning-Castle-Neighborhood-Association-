@@ -483,8 +483,14 @@
   let calDate = new Date();
   calDate.setDate(1);
 
+  const eventRanges = [
+    { start: new Date(2026, 5, 1), end: new Date(2026, 6, 17) }, // Alebrijes display Jun 1 – Jul 17
+  ];
+
   function hasEvent(year, month, day) {
-    return eventDates.some(e => e.year === year && e.month === month && e.day === day);
+    if (eventDates.some(e => e.year === year && e.month === month && e.day === day)) return true;
+    const d = new Date(year, month, day);
+    return eventRanges.some(r => d >= r.start && d <= r.end);
   }
 
   function renderCalendar() {
