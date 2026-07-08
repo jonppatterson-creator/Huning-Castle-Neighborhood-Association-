@@ -246,13 +246,70 @@
           </div>
           <span class="event-badge badge-featured">Event</span>
         </div>
-        <div class="event-row meeting">
+        <div class="event-row meeting expandable" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">Jun</div><div class="day">10</div></div>
           <div class="event-info">
-            <h4>Monthly Board Meeting</h4>
-            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+            <h4>Monthly Board Meeting <span class="expand-icon">▼</span></h4>
+            <div class="event-meta">📍 Albuquerque Country Club Board Room · 6:00 PM</div>
           </div>
           <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+        <div class="event-details" id="june-meeting-details">
+          <div class="event-details-inner">
+            <p class="notice-intro"><strong>Huning Castle Neighborhood Board Meeting — Minutes</strong><br>Wednesday, June 10, 2026 · Albuquerque Country Club Board Room, 6:00 PM</p>
+
+            <div class="notice-alert">
+              <strong>📋 Attendance:</strong> Brenda Marks, Kendall Corley, Rudy Garcia, Clara Hardgrave, Lara Bryson, Jon Patterson, Mark Pinkalla (via Zoom), and Joanne Pinkalla (via Zoom). Markella Clinton from Mayor Keller's Office attended with Bobbie Cisneros, Deputy Director of ABQ Transit. Mayor Tim Keller was also in attendance.
+            </div>
+
+            <div class="notice-section">
+              <h5>📝 Call to Order</h5>
+              <p>The meeting was called to order at 6:05 PM. A quorum was present. Minutes from the HCNA Annual Meeting held May 13 were adopted as written.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🚔 Crime Report — Rudy Garcia</h5>
+              <p>Crime stats for May showed a slight increase due to a few situations of young adults coming off Central and congregating around Forest Park on three separate occasions, typically on a Friday or Saturday between 12 AM and 4 AM. On one occasion, shots were fired before police arrived; APD suspected the groups may have been street racers meeting up before racing.</p>
+              <p>Rudy worked with Commander Sanchez from Valley Command to set up more graveyard patrols in the area, and to have officers coming onto the graveyard shift do their briefings at the park. No further activity has occurred since, and the increased APD presence appears to be keeping the group away. Overall, the neighborhood continues to be very quiet, with a few "suspicious person" reports.</p>
+              <p>Duran's gift cards were given to Commander Sanchez and Carl Christensen in thanks for presenting at the May Annual Meeting.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🗳️ Board Elections — New Officers</h5>
+              <ul>
+                <li><strong>President:</strong> Rudy Garcia (nominated by Brenda Marks, unanimous vote)</li>
+                <li><strong>Vice President:</strong> Brenda Marks (nominated by Rudy Garcia, unanimous)</li>
+                <li><strong>Secretary:</strong> Joanne Pinkalla (nominated by Brenda Marks, seconded by Rudy Garcia, unanimous)</li>
+                <li><strong>Treasurer:</strong> Kendall Corley (retained by unanimous support)</li>
+              </ul>
+              <p class="notice-note">Lara Bryson continues to run HCNA Alert communications, and Jon Patterson continues managing the website.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🗓️ Meeting Schedule &amp; Bylaws</h5>
+              <p>The board discussed amending the bylaws to allow meeting via email, virtually, or on scheduled months throughout the year, noting that HCNA is one of few boards in the city that meets monthly. If there is no new business or pressing matters, a meeting may be canceled, held virtually via Zoom, or conducted via email. The board is also open to meeting at local businesses in addition to ACC.</p>
+              <p>There was a brief discussion about a zoning request from the Garcia family to replat their properties into one lot; emails on the request have circulated among board members.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🍦 National Night Out — August 4</h5>
+              <p>National Night Out is scheduled for August 4, 2026, in Albuquerque and across the country. The board noted great first-responder attendance in the past but lower neighborhood turnout, and agreed the event should continue to support APD and AFD while avoiding a conflict with the first day of school. Ideas discussed included promoting the event with art displays from neighbors, kids, and adults, and rebranding it as an "Ice Cream Social" to be more inviting — Brenda has arranged for The Brain Freezer Ice Cream Truck (Salena Allison) to attend. Date and format will be finalized at the July meeting.</p>
+            </div>
+
+            <div class="notice-section">
+              <h5>🚌 Luminaria Tour — ABQ Transit Options</h5>
+              <p>Mayor Tim Keller, acting as an unofficial liaison between the City and the neighborhood, presented ABQ Transit's proposed changes to the Luminaria Tour along with Markella Clinton and Deputy Director Bobbie Cisneros. Following feedback given after a March presentation to the board, ABQ Transit proposed three options — offered as talking points to start dialogue, not final decisions:</p>
+              <ul>
+                <li><strong>Option 1:</strong> Keep the tour as-is but reduce bus tours to four runs (5:30, 5:45, 6:15, 6:30), shortening the time the neighborhood is impacted by road closures.</li>
+                <li><strong>Option 2:</strong> Convert to a walking tour — nine buses would shuttle tour-goers from parking lots to drop-off points at Raynolds and Kit Carson, running every 15–20 minutes from 5:30–7 PM, with visitors walking a suggested route and being picked up at the same locations. This would also discourage private vehicles from entering the neighborhood.</li>
+                <li><strong>Option 3:</strong> Keep the same tour times but simplify and minimize the route, resulting in much less barricading. A bus would be available for mobility-impaired individuals.</li>
+              </ul>
+              <p><strong>Placards:</strong> Neighbors could request a placard for family or friends entering the neighborhood for holiday gatherings, allowing them past barricades under explicit rules, with pedestrian safety remaining the top priority.</p>
+              <p>ABQ Transit is open to suggestions and needs to begin promoting tour changes in July to give the public enough notice. HCNA will continue meeting with ABQ Transit to discuss options. Concerns raised included choke points, general traffic slowdowns, special groups such as cyclists on the tour route, and bathroom access for the walking-tour option. The board will discuss the options in detail at the July meeting.</p>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--warm-gray); margin-top: 1.25rem;"><strong>Meeting called to order:</strong> 6:05 PM · <strong>Meeting adjourned:</strong> 7:00 PM</p>
+          </div>
         </div>
         <div class="event-row meeting">
           <div class="event-big-date"><div class="month">Jul</div><div class="day">8</div></div>
@@ -314,112 +371,6 @@
           <p style="font-size:0.78rem; color:var(--warm-gray); margin-top:1rem; text-align:center;">
             <span style="color:var(--terracotta);">●</span> Event days
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AGENDA -->
-<section id="agenda" style="background: var(--cream);">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-label">Meeting Agenda</div>
-      <h2 class="section-title">April 8, 2026 Board Meeting</h2>
-      <p class="section-desc">All residents of HCNA are invited to attend.</p>
-    </div>
-
-    <div class="agenda-layout" style="display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start;">
-
-      <!-- Agenda Items -->
-      <div style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 24px rgba(92,61,46,0.08);">
-        <div style="border-left: 4px solid var(--terracotta); padding-left: 1.25rem; margin-bottom: 2rem;">
-          <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--bark); font-weight: 700;">Huning Castle Neighborhood Association</div>
-          <div style="font-family: 'Lora', serif; font-size: 0.95rem; color: var(--warm-gray); margin-top: 0.25rem;">Board of Directors Meeting</div>
-        </div>
-
-        <ol style="list-style: none; counter-reset: agenda-counter; display: flex; flex-direction: column; gap: 0;">
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">1.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Call to order.</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">2.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Review and adoption of March 11, 2026 meeting minutes.</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">3.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">HNC Safety Report: <strong>Rudy Garcia</strong></span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">4.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;"><strong>Carl Christensen</strong> of the Bernalillo County Water Authority will be the speaker for the annual meeting. Can Brenda purchase a $50 gift card from Duran's to give to him for presenting?</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">5.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Rudy to discuss update on his conversations with ABQ Transit about Luminaria Tour and possible adjustment to how it will be done.</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">6.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Continued discussion of Rudy's subcommittee's deliberations about a website and activities for the 2026 year.</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">7.</span>
-            <div style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">
-              Reports (if available):
-              <ol type="a" style="margin-top: 0.5rem; padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;">
-                <li>Treasurer: <strong>Kendall Corley</strong></li>
-                <li>Neighborhood Get-togethers</li>
-              </ol>
-            </div>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">8.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any old business?</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid rgba(92,61,46,0.08);">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">9.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Any new business?</span>
-          </li>
-          <li style="counter-increment: agenda-counter; display: flex; gap: 1.25rem; padding: 1rem 0;">
-            <span style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--terracotta); font-weight: 700; min-width: 28px;">10.</span>
-            <span style="color: var(--charcoal); font-size: 0.95rem; line-height: 1.6;">Adjourn.</span>
-          </li>
-        </ol>
-      </div>
-
-      <!-- Sidebar details -->
-      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-        <div style="background: white; border-radius: 1.25rem; padding: 1.75rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
-          <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--bark); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(92,61,46,0.1);">📋 Meeting Details</div>
-          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
-            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
-              <span style="font-size: 1rem;">📅</span>
-              <div>
-                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Date</div>
-                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">April 8, 2026</div>
-              </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
-              <span style="font-size: 1rem;">🕕</span>
-              <div>
-                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Time</div>
-                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">6:00 PM</div>
-              </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
-              <span style="font-size: 1rem;">📍</span>
-              <div>
-                <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--warm-gray); font-weight: 500;">Location</div>
-                <div style="font-size: 0.92rem; color: var(--charcoal); margin-top: 0.1rem;">Ladies Card Room<br>Albuquerque Country Club</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="background: rgba(196,98,45,0.07); border: 1.5px solid rgba(196,98,45,0.2); border-radius: 1.25rem; padding: 1.5rem;">
-          <div style="font-size: 0.85rem; color: var(--bark); line-height: 1.65; font-family: 'Lora', serif; font-style: italic;">
-            "All residents of HCNA are invited to attend."
-          </div>
         </div>
       </div>
     </div>
