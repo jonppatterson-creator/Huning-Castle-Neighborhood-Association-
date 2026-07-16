@@ -49,6 +49,13 @@
       <p class="section-desc">Contact information, crime mapping tools, and safety resources for Huning Castle residents.</p>
     </div>
 
+    <!-- Sub-tab navigation -->
+    <div class="subtab-nav">
+      <button class="subtab-btn active" onclick="switchSubTab('safety', this)">Safety Resources</button>
+      <button class="subtab-btn" onclick="switchSubTab('wildfire', this)">Wildfire Safety</button>
+    </div>
+
+    <div class="subtab-panel active" id="subtab-safety">
     <div id="safety-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
 
       <!-- LEFT COLUMN -->
@@ -151,6 +158,55 @@
 
       </div>
     </div>
+    </div><!-- end subtab-safety -->
+
+    <div class="subtab-panel" id="subtab-wildfire">
+      <div class="history-prose">
+        <h3>Wildfire Safety &amp; Home Readiness</h3>
+        <p>New Mexico summers bring wildfire risk to our forests, bosque areas,
+        and wooded pockets of the city. Residents with asthma, allergies, or
+        heart and lung conditions should take extra care — stay indoors with
+        windows and doors closed if smoke is nearby, keep respiratory
+        medications on hand, and consider staying with family outside the fire
+        zone if conditions worsen.</p>
+
+        <p>Homes near forested or bosque areas can be harder for emergency
+        crews to reach. Keep a defensible space of about 30 feet around your
+        home clear of dead brush, excess trees, and other flammable material,
+        and make sure driveways are accessible for emergency vehicles.</p>
+
+        <p>If a wildfire threatens your area, evacuating early is the safest
+        choice. Build a family fire plan that includes evacuation routes, a
+        backup way to reach family members if power and cell service go down,
+        a shelter-in-place option if evacuation isn't possible, and face masks
+        on hand to protect against smoke.</p>
+
+        <h3 style="margin-top: 2rem;">Build a Home Readiness Kit</h3>
+        <p>A basic emergency kit should cover your household for at least
+        three days. Suggested categories:</p>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; margin: 1rem 0;">
+          <li><strong>Water:</strong> one gallon per person per day, in sealed containers, rotated every six months.</li>
+          <li><strong>Food:</strong> non-perishable items, a manual can opener, and pet food if needed.</li>
+          <li><strong>Clothing:</strong> a change of clothes, rain gear, sturdy shoes, and gloves.</li>
+          <li><strong>Supplies:</strong> battery radio, flashlight, extra batteries, matches, and duct tape.</li>
+          <li><strong>Sleep &amp; Warmth:</strong> blankets or sleeping bags.</li>
+          <li><strong>Medical:</strong> first aid kit, prescriptions, and basic over-the-counter remedies.</li>
+          <li><strong>Money:</strong> cash and a credit card on hand.</li>
+          <li><strong>Back-ups:</strong> a spare set of glasses, contacts, and car keys.</li>
+          <li><strong>Special Needs:</strong> baby, elderly, or medical-device supplies specific to your household.</li>
+          <li><strong>Information:</strong> physician contacts, insurance info, and details on any medical devices.</li>
+        </ul>
+        <p style="color: var(--warm-gray); font-size: 0.9rem; font-style: italic;">
+          Tip: keep this checklist on your refrigerator so it's easy to reference and update.
+        </p>
+
+        <div class="notice-contact" style="margin-top: 1.5rem;">
+          <h5>📥 Download Full Guide</h5>
+          <p><a href="Home_Readiness_Kit__Wildfire_Safety.pdf" download>Home Readiness Kit &amp; Wildfire Safety (PDF)</a></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
