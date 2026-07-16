@@ -48,17 +48,21 @@
       <h2 class="section-title">Events Calendar</h2>
       <p class="section-desc">From monthly meetings to neighborhood socials — there's always something to join.</p>
     </div>
+
+    <!-- Sub-tab navigation -->
+    <div class="subtab-nav">
+      <button class="subtab-btn active" onclick="switchSubTab('community-events', this)">Events</button>
+      <button class="subtab-btn" onclick="switchSubTab('meetings', this)">Board Meetings</button>
+    </div>
+
     <div class="events-layout">
+      <div>
+
+        <!-- ── EVENTS PANEL ── -->
+        <div class="subtab-panel active" id="subtab-community-events">
       <div class="events-list">
-        <div class="event-row meeting">
-          <div class="event-big-date"><div class="month">Apr</div><div class="day">8</div></div>
-          <div class="event-info">
-            <h4>Monthly Board Meeting</h4>
-            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
-          </div>
-          <span class="event-badge badge-meeting">Meeting</span>
-        </div>
-        <div class="event-row community expandable" onclick="toggleEventDetails(this)">
+
+        <div class="event-row community expandable" data-date="2026-04-11" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">Apr</div><div class="day">11</div></div>
           <div class="event-info">
             <h4>Albuquerque Marathon &amp; Half Marathon <span class="expand-icon">▼</span></h4>
@@ -114,7 +118,8 @@
             </div>
           </div>
         </div>
-        <div class="event-row featured expandable" onclick="toggleEventDetails(this)">
+
+        <div class="event-row featured expandable" data-date="2026-05-13" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">May</div><div class="day">13</div></div>
           <div class="event-info">
             <h4>Annual Neighborhood Meeting <span class="expand-icon">▼</span></h4>
@@ -200,7 +205,8 @@
             </div>
           </div>
         </div>
-        <div class="event-row community expandable" onclick="toggleEventDetails(this)">
+
+        <div class="event-row community expandable" data-date="2026-05-22" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">May</div><div class="day">22</div></div>
           <div class="event-info">
             <h4>Alebrijes Installation at Robinson Park <span class="expand-icon">▼</span></h4>
@@ -238,7 +244,8 @@
             </div>
           </div>
         </div>
-        <div class="event-row featured">
+
+        <div class="event-row featured" data-date="2026-05-27">
           <div class="event-big-date"><div class="month">May</div><div class="day">27</div></div>
           <div class="event-info">
             <h4>Alebrijes Press Conference</h4>
@@ -246,6 +253,60 @@
           </div>
           <span class="event-badge badge-featured">Event</span>
         </div>
+
+        <div class="event-row community" data-date="2026-08-04">
+          <div class="event-big-date"><div class="month">Aug</div><div class="day">4</div></div>
+          <div class="event-info">
+            <h4>National Night Out</h4>
+            <div class="event-meta">📍 Forest Park · 6:00 – 7:00 PM</div>
+          </div>
+          <span class="event-badge badge-community">Community</span>
+        </div>
+
+        <div class="event-row community" data-recurring-until="2026-11-28">
+          <div class="event-big-date">
+            <div class="month">Saturdays</div>
+            <div class="day" style="font-size: 1rem; line-height: 1.2; font-family: 'DM Sans', sans-serif;">Apr – Nov</div>
+          </div>
+          <div class="event-info">
+            <h4>Downtown Growers' Market</h4>
+            <div class="event-meta">📍 Robinson Park, 8th &amp; Central · 8:00 AM – 12:00 PM · April through November</div>
+          </div>
+          <span class="event-badge badge-community">Community</span>
+        </div>
+
+        <div class="event-row community" data-recurring-until="2026-10-25">
+          <div class="event-big-date">
+            <div class="month">Sundays</div>
+            <div class="day" style="font-size: 1rem; line-height: 1.2; font-family: 'DM Sans', sans-serif;">May – Oct</div>
+          </div>
+          <div class="event-info">
+            <h4>Rail Yards Market</h4>
+            <div class="event-meta">📍 Albuquerque Rail Yards · 10:00 AM – 2:00 PM · May through October</div>
+          </div>
+          <span class="event-badge badge-community">Community</span>
+        </div>
+
+        <div id="events-empty-state" style="display:none; text-align:center; padding: 2.5rem 1.5rem; color: var(--warm-gray); font-family: 'Lora', serif; font-size: 0.95rem; background: white; border-radius: 1.25rem; box-shadow: 0 2px 16px rgba(92,61,46,0.07);">
+          No upcoming events right now — check back soon!
+        </div>
+
+      </div>
+        </div>
+
+        <!-- ── MEETINGS PANEL ── -->
+        <div class="subtab-panel" id="subtab-meetings">
+      <div class="events-list">
+
+        <div class="event-row meeting">
+          <div class="event-big-date"><div class="month">Apr</div><div class="day">8</div></div>
+          <div class="event-info">
+            <h4>Monthly Board Meeting</h4>
+            <div class="event-meta">📍 Albuquerque Country Club · 6:00 – 8:00 PM</div>
+          </div>
+          <span class="event-badge badge-meeting">Meeting</span>
+        </div>
+
         <div class="event-row meeting expandable" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">Jun</div><div class="day">10</div></div>
           <div class="event-info">
@@ -311,6 +372,7 @@
             <p style="font-size: 0.88rem; color: var(--warm-gray); margin-top: 1.25rem;"><strong>Meeting called to order:</strong> 6:05 PM · <strong>Meeting adjourned:</strong> 7:00 PM</p>
           </div>
         </div>
+
         <div class="event-row meeting expandable" onclick="toggleEventDetails(this)">
           <div class="event-big-date"><div class="month">Jul</div><div class="day">8</div></div>
           <div class="event-info">
@@ -380,14 +442,7 @@
             </div>
           </div>
         </div>
-        <div class="event-row community">
-          <div class="event-big-date"><div class="month">Aug</div><div class="day">4</div></div>
-          <div class="event-info">
-            <h4>National Night Out</h4>
-            <div class="event-meta">📍 Forest Park · 6:00 – 7:00 PM</div>
-          </div>
-          <span class="event-badge badge-community">Community</span>
-        </div>
+
         <div class="event-row meeting">
           <div class="event-big-date"><div class="month">Aug</div><div class="day">12</div></div>
           <div class="event-info">
@@ -428,6 +483,10 @@
           </div>
           <span class="event-badge badge-meeting">Meeting</span>
         </div>
+
+      </div>
+        </div>
+
       </div>
       <div class="events-sidebar">
         <div class="sidebar-card">
@@ -483,22 +542,13 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/events-data.js"></script>
 <script>
   // ─── DYNAMIC CALENDAR ───
-  const eventDates = [
-    { year: 2026, month: 3, day: 8 },   // Apr 8 board meeting
-    { year: 2026, month: 3, day: 11 },  // Apr 11 marathon
-    { year: 2026, month: 4, day: 13 },  // May 13 annual meeting
-    { year: 2026, month: 4, day: 22 },  // May 22 alebrijes installation
-    { year: 2026, month: 4, day: 27 },  // May 27 alebrijes press conference
-    { year: 2026, month: 5, day: 10 },  // Jun 10
-    { year: 2026, month: 6, day: 8 },   // Jul 8
-    { year: 2026, month: 7, day: 12 },  // Aug 12
-    { year: 2026, month: 8, day: 9 },   // Sep 9
-    { year: 2026, month: 9, day: 14 },  // Oct 14
-    { year: 2026, month: 10, day: 11 }, // Nov 11
-    { year: 2026, month: 11, day: 9 },  // Dec 9
-  ];
+  const eventDates = siteEvents.map(function (e) {
+    var p = e.date.split('-').map(Number);
+    return { year: p[0], month: p[1] - 1, day: p[2] };
+  });
 
   let calDate = new Date();
   calDate.setDate(1);
@@ -545,6 +595,40 @@
   }
 
   renderCalendar();
+</script>
+<script>
+  // ─── EVENTS TAB: HIDE PAST EVENTS ON PAGE LOAD ───
+  (function () {
+    function parseDate(iso) {
+      var p = iso.split('-').map(Number);
+      return new Date(p[0], p[1] - 1, p[2]);
+    }
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    var panel = document.getElementById('subtab-community-events');
+    if (!panel) return;
+    var rows = panel.querySelectorAll('.event-row');
+    var visible = 0;
+
+    rows.forEach(function (row) {
+      var d = row.getAttribute('data-date');
+      var u = row.getAttribute('data-recurring-until');
+      var hide = (d && parseDate(d) < today) || (u && parseDate(u) < today);
+      if (hide) {
+        row.style.display = 'none';
+        var next = row.nextElementSibling;
+        if (next && next.classList.contains('event-details')) next.style.display = 'none';
+      } else {
+        visible++;
+      }
+    });
+
+    if (visible === 0) {
+      var empty = document.getElementById('events-empty-state');
+      if (empty) empty.style.display = 'block';
+    }
+  }());
 </script>
 </body>
 </html>
