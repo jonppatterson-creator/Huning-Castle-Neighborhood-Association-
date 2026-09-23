@@ -1,4 +1,4 @@
-$root = "C:\Users\jonpp\Claude Code\Huning Castle"
+$root = "C:\Users\jonpp\Projects\Huning Castle"
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:8080/")
 $listener.Start()
