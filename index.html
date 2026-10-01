@@ -15,6 +15,7 @@
   <a href="index.html" class="nav-brand" style="text-decoration:none;">Huning <span>Castle</span> NA</a>
   <ul class="nav-links">
     <li><a href="about.html">About Us</a></li>
+    <li><a href="#alerts">Alerts</a></li>
     <li><a href="events.html">Meetings &amp; Events</a></li>
     <li><a href="newsletter.html">Newsletter</a></li>
     <li><a href="safety.html">Safety</a></li>
@@ -32,6 +33,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="about.html" onclick="closeMenu()">About Us</a></li>
+    <li><a href="#alerts" onclick="closeMenu()">Alerts</a></li>
     <li><a href="events.html" onclick="closeMenu()">Meetings &amp; Events</a></li>
     <li><a href="newsletter.html" onclick="closeMenu()">Newsletter</a></li>
     <li><a href="safety.html" onclick="closeMenu()">Safety</a></li>
@@ -53,6 +55,20 @@
         <a href="events.html" class="btn-primary">Upcoming Events →</a>
         <a href="#resources" class="btn-secondary">Resources</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALERTS -->
+<section id="alerts">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Stay Informed</div>
+      <h2 class="section-title">Neighborhood Alerts</h2>
+      <p class="section-desc">Recent messages sent to HCNA neighbors by email.</p>
+    </div>
+    <div class="news-grid" id="alerts-grid">
+      <p class="section-desc" id="alerts-status">Loading alerts…</p>
     </div>
   </div>
 </section>
@@ -160,5 +176,49 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// Neighborhood alerts feed. For now: local alerts.json. Later: Apps Script web app URL.
+const ALERTS_URL = 'alerts.json';
+async function loadAlerts() {
+  const grid = document.getElementById('alerts-grid');
+  const status = document.getElementById('alerts-status');
+  try {
+    const res = await fetch(ALERTS_URL);
+    const data = await res.json();
+    grid.innerHTML = '';
+    if (!data.alerts.length) {
+      grid.innerHTML = '<p class="section-desc">No recent alerts.</p>';
+      return;
+    }
+    data.alerts.forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'news-card';
+      const accent = document.createElement('div');
+      accent.className = 'news-card-accent accent-terracotta';
+      const body = document.createElement('div');
+      body.className = 'news-card-body';
+      const tag = document.createElement('span');
+      tag.className = 'news-tag tag-announce';
+      tag.textContent = new Date(a.date).toLocaleDateString('en-US',
+        { month: 'short', day: 'numeric', year: 'numeric' });
+      const h = document.createElement('h4');
+      h.textContent = a.subject;
+      body.append(tag, h);
+      a.body.split(/\n{2,}/).forEach(par => {
+        const p = document.createElement('p');
+        p.style.marginBottom = '0.6rem';
+        // textContent only: email content is never inserted as HTML
+        p.textContent = par.replace(/\n/g, ' ');
+        body.appendChild(p);
+      });
+      card.append(accent, body);
+      grid.appendChild(card);
+    });
+  } catch (e) {
+    if (status) status.textContent = 'Alerts are unavailable right now. Please check your email or our Facebook page.';
+  }
+}
+loadAlerts();
+</script>
 </body>
 </html>
