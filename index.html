@@ -179,6 +179,30 @@
 <script>
 // Neighborhood alerts feed. For now: local alerts.json. Later: Apps Script web app URL.
 const ALERTS_URL = 'alerts.json';
+// Alerts longer than ALERT_COLLAPSE_OVER paragraphs show only the first ALERT_PREVIEW_PARAS until expanded.
+const ALERT_PREVIEW_PARAS = 3;
+const ALERT_COLLAPSE_OVER = 6;
+// Builds text nodes and <a> elements, never HTML strings, so email content stays inert.
+function appendLinkified(el, text) {
+  const re = /(https?:\/\/[^\s<>"]+[^\s<>".,;:!?)]|[\w.+-]+@[\w-]+(?:\.[\w-]+)+)/g;
+  let last = 0, m;
+  while ((m = re.exec(text))) {
+    el.append(text.slice(last, m.index));
+    const link = document.createElement('a');
+    link.className = 'read-more';
+    link.textContent = m[0];
+    if (m[0].includes('@') && !/^https?:/.test(m[0])) {
+      link.href = 'mailto:' + m[0];
+    } else {
+      link.href = m[0];
+      link.target = '_blank';
+      link.rel = 'noopener';
+    }
+    el.append(link);
+    last = re.lastIndex;
+  }
+  el.append(text.slice(last));
+}
 async function loadAlerts() {
   const grid = document.getElementById('alerts-grid');
   const status = document.getElementById('alerts-status');
@@ -204,13 +228,31 @@ async function loadAlerts() {
       const h = document.createElement('h4');
       h.textContent = a.subject;
       body.append(tag, h);
-      a.body.split(/\n{2,}/).forEach(par => {
+      const paras = a.body.split(/\n{2,}/);
+      const extra = [];
+      paras.forEach((par, i) => {
         const p = document.createElement('p');
         p.style.marginBottom = '0.6rem';
-        // textContent only: email content is never inserted as HTML
-        p.textContent = par.replace(/\n/g, ' ');
+        p.style.overflowWrap = 'anywhere';
+        appendLinkified(p, par.replace(/\n/g, ' '));
+        if (paras.length > ALERT_COLLAPSE_OVER && i >= ALERT_PREVIEW_PARAS) { p.hidden = true; extra.push(p); }
         body.appendChild(p);
       });
+      if (extra.length) {
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'read-more';
+        toggle.style.cssText = 'background:none;border:0;padding:0;cursor:pointer;font-family:inherit;font-size:0.9rem;';
+        toggle.textContent = 'Read more →';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.addEventListener('click', () => {
+          const open = toggle.getAttribute('aria-expanded') !== 'true';
+          extra.forEach(p => { p.hidden = !open; });
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.textContent = open ? 'Show less ↑' : 'Read more →';
+        });
+        body.appendChild(toggle);
+      }
       card.append(accent, body);
       grid.appendChild(card);
     });
