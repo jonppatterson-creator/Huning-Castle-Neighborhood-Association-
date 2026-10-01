@@ -179,6 +179,9 @@
 <script>
 // Neighborhood alerts feed. For now: local alerts.json. Later: Apps Script web app URL.
 const ALERTS_URL = 'alerts.json';
+// Used if ALERTS_URL fails, times out, or returns something unexpected.
+const ALERTS_FALLBACK_URL = 'alerts.json';
+const ALERTS_TIMEOUT_MS = 8000;
 // Alerts longer than ALERT_COLLAPSE_OVER paragraphs show only the first ALERT_PREVIEW_PARAS until expanded.
 const ALERT_PREVIEW_PARAS = 3;
 const ALERT_COLLAPSE_OVER = 6;
@@ -203,12 +206,25 @@ function appendLinkified(el, text) {
   }
   el.append(text.slice(last));
 }
+async function fetchAlerts(url) {
+  const opts = window.AbortSignal && AbortSignal.timeout ? { signal: AbortSignal.timeout(ALERTS_TIMEOUT_MS) } : {};
+  const res = await fetch(url, opts);
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const data = await res.json();
+  if (!data || !Array.isArray(data.alerts)) throw new Error('Unexpected alerts format');
+  return data;
+}
 async function loadAlerts() {
   const grid = document.getElementById('alerts-grid');
   const status = document.getElementById('alerts-status');
   try {
-    const res = await fetch(ALERTS_URL);
-    const data = await res.json();
+    let data;
+    try {
+      data = await fetchAlerts(ALERTS_URL);
+    } catch (e) {
+      if (ALERTS_URL === ALERTS_FALLBACK_URL) throw e;
+      data = await fetchAlerts(ALERTS_FALLBACK_URL);
+    }
     grid.innerHTML = '';
     if (!data.alerts.length) {
       grid.innerHTML = '<p class="section-desc">No recent alerts.</p>';
