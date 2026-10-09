@@ -81,24 +81,7 @@
       <h2 class="section-title">Upcoming Events</h2>
       <p class="section-desc">From monthly meetings to neighborhood socials — there's always something happening.</p>
     </div>
-    <div class="events-list">
-      <div class="event-row community">
-        <div class="event-big-date"><div class="month">Aug</div><div class="day">4</div></div>
-        <div class="event-info">
-          <h4>National Night Out</h4>
-          <div class="event-meta">📍 Forest Park · 6:00 – 7:00 PM</div>
-        </div>
-        <span class="event-badge badge-community">Community</span>
-      </div>
-      <div class="event-row meeting">
-        <div class="event-big-date"><div class="month">Sep</div><div class="day">9</div></div>
-        <div class="event-info">
-          <h4>Board Meeting</h4>
-          <div class="event-meta">📍 Albuquerque Country Club · 6:00 PM</div>
-        </div>
-        <span class="event-badge badge-meeting">Meeting</span>
-      </div>
-    </div>
+    <div class="events-list" id="upcoming-events"></div>
     <div style="margin-top: 1.75rem; text-align: right;">
       <a href="events.html" class="btn-primary">View All Events →</a>
     </div>
@@ -176,6 +159,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/events-data.js"></script>
 <script>
 // Neighborhood alerts feed. For now: local alerts.json. Later: Apps Script web app URL.
 const ALERTS_URL = 'alerts.json';
@@ -277,6 +261,50 @@ async function loadAlerts() {
   }
 }
 loadAlerts();
+// Upcoming events preview, built from siteEvents in js/events-data.js.
+const UPCOMING_EVENTS_LIMIT = 3;
+function renderUpcomingEvents(now = new Date()) {
+  const list = document.getElementById('upcoming-events');
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const toDate = iso => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); };
+  const upcoming = siteEvents
+    .filter(e => toDate(e.date) >= today)
+    .sort((a, b) => toDate(a.date) - toDate(b.date))
+    .slice(0, UPCOMING_EVENTS_LIMIT);
+  list.innerHTML = '';
+  if (!upcoming.length) {
+    list.innerHTML = '<p class="section-desc">No upcoming events scheduled. Check back soon!</p>';
+    return;
+  }
+  upcoming.forEach(e => {
+    const isMeeting = /meeting/i.test(e.title);
+    const row = document.createElement('div');
+    row.className = 'event-row ' + (isMeeting ? 'meeting' : 'community');
+    const dateBox = document.createElement('div');
+    dateBox.className = 'event-big-date';
+    const month = document.createElement('div');
+    month.className = 'month';
+    month.textContent = toDate(e.date).toLocaleDateString('en-US', { month: 'short' });
+    const day = document.createElement('div');
+    day.className = 'day';
+    day.textContent = toDate(e.date).getDate();
+    dateBox.append(month, day);
+    const info = document.createElement('div');
+    info.className = 'event-info';
+    const h = document.createElement('h4');
+    h.textContent = e.title;
+    const meta = document.createElement('div');
+    meta.className = 'event-meta';
+    meta.textContent = '📍 ' + e.location + ' · ' + e.time;
+    info.append(h, meta);
+    const badge = document.createElement('span');
+    badge.className = 'event-badge ' + (isMeeting ? 'badge-meeting' : 'badge-community');
+    badge.textContent = isMeeting ? 'Meeting' : 'Community';
+    row.append(dateBox, info, badge);
+    list.appendChild(row);
+  });
+}
+renderUpcomingEvents();
 </script>
 </body>
 </html>
