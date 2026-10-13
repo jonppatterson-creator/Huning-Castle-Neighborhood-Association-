@@ -1,6 +1,18 @@
 {
   "alerts": [
     {
+      "id": "manual-2026-10-duke-city-marathon",
+      "date": "2026-10-13T18:05:00Z",
+      "subject": "Duke City Marathon: HCNA Street Closures Sunday, Oct 18",
+      "body": "The Duke City Marathon is this Sunday, October 18. From 6:30 AM to 12:00 PM, these HCNA streets will be closed to traffic: Laguna, San Pasquale, Chacoma, Kit Carson, and Alcalde west of Kit Carson.\n\nCentral will also be closed from 3rd Street to San Pasquale, and Old Town streets are on the Marathon and Half Marathon course.\n\nIf you need to leave the neighborhood, use streets on the east side heading toward 14th Street, and watch for runners.\n\nRace maps: https://www.dukecitymarathon.com/maps/2026/full.pdf\nFull details are in the Events Calendar on this site."
+    },
+    {
+      "id": "manual-2026-10-running-fiesta",
+      "date": "2026-10-13T18:00:00Z",
+      "subject": "Albuquerque Running Fiesta: Runners in HCNA Sunday, Nov 1",
+      "body": "The Albuquerque Running Fiesta is Sunday, November 1, starting and finishing at Civic Plaza. The marathon course runs through Huning Castle: west on Central at the start, and late in the race (miles 23–26) on Alcalde, Kit Carson, Laguna, and San Pasquale before heading east on Central to the finish.\n\nExpect runners, volunteers, and race staff on these streets during the morning, and please drive with caution.\n\nCome out and cheer! Our streets are the last miles of a 26.2-mile race, so a cowbell, a homemade sign, or a few encouraging words make a big difference.\n\nQuestions: info@abqrunningfiesta.com or https://abqrunningfiesta.com\nFull details and the course map are in the Events Calendar on this site."
+    },
+    {
       "id": "1a0f7de0c9b832b0",
       "date": "2026-10-01T14:28:12Z",
       "subject": "Barbara Garcia Memorial Fund Drive for Roadrunner Food Bank",
