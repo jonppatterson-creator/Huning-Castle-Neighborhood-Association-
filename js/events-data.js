@@ -17,5 +17,6 @@ const siteEvents = [
   { date: '2026-07-08', title: 'Board Meeting',                            time: '6:00 PM',  location: 'ACC Board Room' },
   { date: '2026-08-04', title: 'National Night Out',                       time: '6:00 PM',  location: 'Forest Park' },
   { date: '2026-09-09', title: 'Board Meeting',                            time: '6:00 PM',  location: 'Albuquerque Country Club' },
+  { date: '2026-10-18', title: 'Duke City Marathon — HCNA Street Closures', time: '6:30 AM',  location: 'Streets closed in HCNA' },
   { date: '2026-11-11', title: 'Board Meeting',                            time: '6:00 PM',  location: 'Albuquerque Country Club' },
 ];
