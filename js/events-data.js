@@ -21,4 +21,5 @@ const siteEvents = [
   { date: '2026-10-18', title: 'Duke City Marathon — HCNA Street Closures', time: '6:30 AM',  location: 'Streets closed in HCNA' },
   { date: '2026-11-01', title: 'Albuquerque Running Fiesta — Runners in HCNA', time: 'Race morning', location: 'Start & finish at Civic Plaza' },
   { date: '2026-11-11', title: 'Board Meeting',                            time: '6:00 PM',  location: 'Albuquerque Country Club' },
+  { date: '2026-11-15', title: 'Backyard Story Series: Migration',         time: '4:00 PM',  location: 'Historic Aldo Leopold House' },
 ];
