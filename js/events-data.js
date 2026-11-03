@@ -9,5 +9,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 const siteEvents = [
   { date: '2026-11-11', title: 'Board Meeting',                            time: '6:00 PM',  location: 'Albuquerque Country Club' },
+  { date: '2026-11-15', title: 'HCNA Fall Fest',                           time: '1:00 PM',  location: 'Forest Park' },
   { date: '2026-11-15', title: 'Backyard Story Series: Migration',         time: '4:00 PM',  location: 'Historic Aldo Leopold House' },
 ];
