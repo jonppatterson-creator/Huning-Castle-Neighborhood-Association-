@@ -1,6 +1,13 @@
 {
   "alerts": [
     {
+      "id": "manual-2026-11-11-board-meeting",
+      "date": "2026-11-08T17:00:00Z",
+      "subject": "November 11 Board Meeting — New Location",
+      "body": "All HCNA residents are invited to the monthly Board Meeting on Wednesday, November 11, 2026 at 6:00 PM. Please note the new location: the Dining Room at the Arrive Hotel, 717 Central Ave NW, Albuquerque, NM 87102.\n\nAgenda:\n\n1. Call to order — 6:00 PM\n\n2. Adoption of September 9, 2026 minutes\n\n3. Ground rules\n\n4. APD Crime/HCNA Safety Report — Rudy Garcia\n\n5. November 15 HCNA Sponsored Holiday Market\n\n6. Neighborhood Runs\n\n7. Webpage Sponsorship\n\n8. Committee Reports: Treasurer — Kendall Corley\n\n9. Any outstanding old business\n\n10. Any new business\n\n11. Adjourn",
+      "attachment": { "url": "2026-11-11-board-meeting-agenda.docx", "label": "Download the agenda (.docx)" }
+    },
+    {
       "id": "manual-2026-10-luminaria-sales",
       "date": "2026-10-24T18:00:00Z",
       "subject": "Christmas Eve Luminarias: Troop 444 Ending Service, New Option Available",

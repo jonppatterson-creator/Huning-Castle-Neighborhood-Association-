@@ -253,6 +253,18 @@ async function loadAlerts() {
         });
         body.appendChild(toggle);
       }
+      // Optional downloadable file stored in the repo, e.g. a meeting agenda.
+      if (a.attachment && a.attachment.url) {
+        const p = document.createElement('p');
+        p.style.marginTop = '0.6rem';
+        const link = document.createElement('a');
+        link.className = 'read-more';
+        link.href = a.attachment.url;
+        link.setAttribute('download', '');
+        link.textContent = a.attachment.label || 'Download attachment';
+        p.appendChild(link);
+        body.appendChild(p);
+      }
       card.append(accent, body);
       grid.appendChild(card);
     });
