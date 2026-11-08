@@ -1,6 +1,12 @@
 {
   "alerts": [
     {
+      "id": "manual-2026-11-11-habitat-walk",
+      "date": "2026-11-08T18:00:00Z",
+      "subject": "Neighborhood Habitat Walk — Nov 11",
+      "body": "Get to know your wild neighbors! Join us on Wednesday, November 11, 2026, from 2:00 to 4:00 PM for a walk starting at Aldo and Estella Leopold's historic home. We'll explore the neighborhood habitat and talk about ways to share space with our wild neighbors. We'll also make observations with the iNaturalist app to add to our urban biodiversity map!\n\nWhere: Aldo Leopold House, 135 14th Street SW (one block south of Central Avenue)\n\nTip: Download the free iNaturalist app before the walk.\n\nMap: Aldo Leopold House — https://www.google.com/maps/search/?api=1&query=135+14th+Street+SW+Albuquerque+NM+87102\n\nGet the iNaturalist app — https://www.inaturalist.org"
+    },
+    {
       "id": "manual-2026-11-11-board-meeting",
       "date": "2026-11-08T17:00:00Z",
       "subject": "November 11 Board Meeting — New Location",
