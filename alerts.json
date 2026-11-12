@@ -1,6 +1,12 @@
 {
   "alerts": [
     {
+      "id": "manual-2026-10-luminaria-sales",
+      "date": "2026-11-11T17:00:00Z",
+      "subject": "Christmas Eve Luminarias: Troop 444 Ending Service, New Option Available",
+      "body": "Hello Neighbors,\n\nWe recently received information that the NM Women's Chorus will be selling luminarias that include delivery, set-up, and pickup. For those of you wishing for this full service, please see the link below.\n\nNM Women's Chorus: https://www.nmwomenschorus.org/\n\nAs HCNA receives information about which groups are selling luminarias this year, we want to make sure we share them with all of you. Below are two groups selling luminarias this year. These groups are only selling and delivering luminarias. They do not set up or pick up.\n\n• Scout Troops 395 and 1395 (selling and delivering only; no set-up or pickup): https://scoutsluminarias.com/shop-1\n\n• Albuquerque Youth Symphony Program (selling and delivering only; no set-up or pickup): https://www.aysmusic.org\n\nMany of us have relied on Boy Scout Troop 444 for luminaria purchase, setup, and removal. The Troop will no longer be offering this service. Their message is below.\n\n— Message from Troop 444 —\n\nTroop 444 has provided Christmas Eve luminarias to the Albuquerque Country Club neighborhood for over 30 years, but this year, that tradition is coming to an end. Troop 444 will no longer be offering our annual Christmas luminaria service.\n\nWe sincerely thank everyone who supported the Troop over the years. Your orders helped generations of Scouts pay for activities, equipment, camping, and other experiences that made Scouting possible.\n\nMany of you supported this fundraiser year after year, and we are especially grateful for that loyalty. It has been a pleasure to be part of the neighborhood's Christmas Eve tradition. Thank you for supporting Troop 444 and its Scouts for more than three decades.\n\n— Troop 444"
+    },
+    {
       "id": "manual-2026-11-11-habitat-walk",
       "date": "2026-11-08T18:00:00Z",
       "subject": "Neighborhood Habitat Walk — Nov 11",
@@ -12,12 +18,6 @@
       "subject": "November 11 Board Meeting — New Location",
       "body": "All HCNA residents are invited to the monthly Board Meeting on Wednesday, November 11, 2026 at 6:00 PM. Please note the new location: the Dining Room at the Arrive Hotel, 717 Central Ave NW, Albuquerque, NM 87102.\n\nAgenda:\n\n1. Call to order — 6:00 PM\n\n2. Adoption of September 9, 2026 minutes\n\n3. Ground rules\n\n4. APD Crime/HCNA Safety Report — Rudy Garcia\n\n5. November 15 HCNA Sponsored Holiday Market\n\n6. Neighborhood Runs\n\n7. Webpage Sponsorship\n\n8. Committee Reports: Treasurer — Kendall Corley\n\n9. Any outstanding old business\n\n10. Any new business\n\n11. Adjourn",
       "attachment": { "url": "2026-11-11-board-meeting-agenda.docx", "label": "Download the agenda (.docx)" }
-    },
-    {
-      "id": "manual-2026-10-luminaria-sales",
-      "date": "2026-10-24T18:00:00Z",
-      "subject": "Christmas Eve Luminarias: Troop 444 Ending Service, New Option Available",
-      "body": "Hello Neighbors,\n\nMany of us have relied on Boy Scout Troop 444 for luminaria purchase, setup, and removal. The Troop will no longer be offering this service. Their message is below.\n\n— Message from Troop 444 —\n\nTroop 444 has provided Christmas Eve luminarias to the Albuquerque Country Club neighborhood for over 30 years, but this year, that tradition is coming to an end. Troop 444 will no longer be offering our annual Christmas luminaria service.\n\nWe sincerely thank everyone who supported the Troop over the years. Your orders helped generations of Scouts pay for activities, equipment, camping, and other experiences that made Scouting possible.\n\nMany of you supported this fundraiser year after year, and we are especially grateful for that loyalty. It has been a pleasure to be part of the neighborhood's Christmas Eve tradition. Thank you for supporting Troop 444 and its Scouts for more than three decades.\n\n— Troop 444\n\nWe recently received information that the NM Women's Chorus will be selling luminarias that include delivery, set-up, and pickup. For those of you wishing for this full service, please see the link below.\n\nNM Women's Chorus: https://www.nmwomenschorus.org/\n\nAs HCNA receives information about which groups are selling luminarias this year, we want to make sure we share them with all of you. Below are two groups selling luminarias this year. These groups are only selling and delivering luminarias. They do not set up or pick up.\n\n• Scout Troops 395 and 1395 (selling and delivering only; no set-up or pickup): https://scoutsluminarias.com/shop-1\n\n• Albuquerque Youth Symphony Program (selling and delivering only; no set-up or pickup): https://www.aysmusic.org"
     },
     {
       "id": "1a0f7de0c9b832b0",
